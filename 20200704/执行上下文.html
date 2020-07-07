@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        /*
+        js中JavaScript 引擎会创建了执行上下文栈（Execution context stack，ECS）来管理执行上下文
+
+        执行上下文 
+        定义：为一段可执行代码块 例如：全局的代码  函数代码  eval代码块
+
+        执行上下文中包含着 变量对象 this 作用域链这三个重要属性。
+
+
+        执行上下文栈 当进入一个执行上下文将其压入执行上下文栈 当其执行完毕 把该执行上下文弹出执行上下文栈
+
+        function foo(){
+            function fun(){
+
+            }
+            fun();
+        
+        }
+        foo();
+
+        模拟执行上下文栈
+        stack=[];
+
+        进入全局执行上下文并将其压入上下文栈
+        stack=[gobalContext];
+        
+        当代码执行到foo();就进入foo这个函数的执行上下文，并将其压入栈中
+        stack.push(fooContext);
+
+        在foo函数执行到fun()时，进入fun函数的执行上下文，并将其压入栈中
+        stack.push(funContext)
+
+
+        fun函数执行完毕将其执行上下文弹出栈中
+        stack.pop();
+        
+        紧接着foo函数执行完毕 将其执行上下文弹出栈中
+        stack.pop()
+
+        当所用代码执行完毕 将全局执行上下文弹出栈中
+        stack.pop();
+
+
+
+        function foo(){
+            
+            return function(){
+
+            }
+        
+        }
+        var fun=foo();
+        fun();
+
+        模拟其执行上下文栈
+        stack=[];
+
+        进入全局执行上下文并将其压入上下文栈
+        stack=[gobalContext];
+        
+        当代码执行到foo();就进入foo这个函数的执行上下文，并将其压入栈中
+        stack.push(fooContext);
+
+        紧接着foo函数执行完毕 将其执行上下文弹出栈中
+        stack.pop()
+
+        执行到fun()时，进入fun函数的执行上下文，并将其压入栈中
+        stack.push(funContext)
+
+
+        fun函数执行完毕将其执行上下文弹出栈中
+        stack.pop();
+        
+
+        当所用代码执行完毕 将全局执行上下文弹出栈中
+        stack.pop();
+
+
+
+        变量对象：
+        保存着该执行上下文中所有的声明的变量、函数（在函数中还有形参）
+
+        当进入执行上下文中会初始化其变量对象（及js的预编译）
+        在执行过程中会对其变量对象进行赋值、更改等操作
+
+
+        作用域链
+
+        函数声明创建时保存作用域链到内部属性[[scope]]
+        当执行函数时函数执行上下文， 函数执行上下文被压入执行上下文栈
+        函数并不立刻执行，开始做准备工作，第一步：复制函数[[scope]]属性创建作用域链
+        用 arguments 创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明
+        将活动对象压入该作用域链顶端
+        准备工作做完，开始执行函数，随着函数的执行，修改 AO 的属性值
+        */
+    </script>
+</body>
+</html>

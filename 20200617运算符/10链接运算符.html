@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    “+” 什么时候是算数运算符 什么时候是连接元素符
+
+        - 只要操作数为字符串 不论是转换后 还是本身是字符串 都是连接符
+        - ----> 与所有的字符串相加 返回值都是字符串
+    <script>
+            // var res = [1,'gu'] + {}
+                // res = '1,gu' + [object,object]
+                // res = 1,gu[object object]
+            var res = (true + 123) + ''
+                res = (1 + 123) + ''
+                console.log(typeof res , res)//输出124
+    </script>
+</body>
+</html>

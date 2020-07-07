@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    比较运算符 <br>
+    比较： 大小 相等 转化成具体数字才能比较 <br>
+        - 比较的结果都是boolean值 也就是true 和 false <br>
+
+    判断大小运算符 并且不同的数据类型才转化
+    相同类型不转化
+    NaN 自己不等于自己
+    <script>
+        console.log(undefined>1);//false
+        console.log(undefined==undefined)//true  相同类型直接比较 不转化
+        console.log(NaN===NaN)//false  NaN 自己不等于自己
+        console.log(1>'')//1>0 输出ture 先看有没有数据转换
+        console.log([]=='')// '' == '' 都为字符串 输出true
+        console.log([]==='')//三个等号 不存在数据类型转化 输出false
+        // true 到底是转换成number 还是字符串
+        //  - 转换成number 再比较
+        console.log(true>'')//输出true 1 > 0
+        console.log(true>='true')//输出false 1 > NaN
+
+        // 问题
+        // null 值等于== undefined null
+        console.log('' == null)//false 特殊的
+        console.log([] == null)//false 特殊的
+        console.log('ddd' == null)//false 特殊的
+        console.log({} == null)//false 特殊的
+        console.log(12 == null)//false 特殊的
+        console.log(null == null)//true 
+        console.log(undefined == null)// true  意义相同 
+    </script>
+</body>
+</html>

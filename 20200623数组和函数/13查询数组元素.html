@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何判断某个数组中是否含有某个元素
+
+        var arr = ['wyq',12,323,'前端',true];
+        // 方式一 遍历 + if
+        // for (i = 0 ;i < arr.length;i++){
+        //     if(arr[i]==='前端'){
+        //         alert('找到了')
+        //         break
+        //     }
+        // }
+
+        // 方式二
+        // arr.indexOf 返回数组查找数组元素的索引值
+        // 如果为-1 证明数组中没有这个元素
+        var res = arr.indexOf(12)
+        if(res!==-1){
+            alert ('zhaodaole')
+        }
+        console.log(res)//返回字符所在的索引值  返回-1 不含有字符
+
+    </script>
+</body>
+</html>

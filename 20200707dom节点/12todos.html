@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+            background-color: thistle;
+        }
+        * {
+            margin:  0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        input {
+            outline: none;
+            border: 1px solid #ccc;
+            height: 35px;
+            padding-left: 15px;
+            width: 300px;
+            color: #ccc;
+        }
+        .head {
+            width: 300px;
+            margin:10px auto;
+            display: flex;
+            justify-content: center;
+        }
+        #add {
+            width: 55px;
+            height: 35px;
+            appearance: none;
+            border: none;
+            outline: none;
+            background:#ccc;
+        }
+        main {
+            width: 500px;
+            background-color: #fff;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .content {
+            padding: 20px 45px 20px 45px
+        }
+        .content li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0px;
+            height: 35px;
+        }
+        .content .deletEl {
+            background-color: #ccc;
+            width: 45px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            color: #575151;
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <div class="head">
+            <input id="ipt" type="text" placeholder="新增内容" >
+            <div><button id="add">新增</button></div>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <span>这是内容</span>
+                    <div class="deletEl">删除</div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        // 初始化获取一次
+       var ipt = document.querySelector('#ipt');
+       var addBtn = document.querySelector('#add')
+       var ulNode = document.querySelector('.content>ul')
+    //    var deletNode = document.querySelectorAll('li>.deletEl')
+    //    console.log(deletNode)
+        deleteItem();
+       addBtn.onclick = function(){
+           var val = ipt.value;
+           var liNode = document.createElement('li');
+           var span = document.createElement('span');
+           var div = document.createElement('div');
+
+           div.innerHTML = '删除';
+           div.className = 'deletEl';
+
+           span.innerHTML = val;
+           liNode.appendChild(span);
+           liNode.appendChild(div)
+
+        // 把li添加到ul上
+           ulNode.appendChild(liNode)
+           ipt.value = '';
+
+           deleteItem();
+       };
+
+       
+       function deleteItem() {
+        var deletNode = document.querySelectorAll("li>.deletEl");
+        // 删除
+        for (var i = 0; i < deletNode.length; i++) {
+          (function (i) {
+            var x = i;
+            deletNode[x].onclick = function () {
+              var prent = deletNode[x].parentNode;
+              prent.remove();
+            };
+          })(i);
+        }
+      }
+
+    </script>
+</body>
+</html>

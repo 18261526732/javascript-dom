@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过构造函数创建数组
+        var arr=['1',12]
+        var arr1 = new Array('1',123)
+        console.log(arr)
+        
+
+        // 如何向数组添加元素
+        // 方式一 
+        // 从尾部添加
+        arr1[arr1.length] = '新增'//弊端只能添加一个不能无限添加
+
+        // 方式二
+        // 从数组的尾部添加数据  参数为被添加的元素
+        arr1.push('api添加的新内容')
+        
+        // 方式三
+        // 可以从头部无限添加
+        arr1.unshift('从头部无限添加');
+        arr1.unshift('从头部无限添加');
+        arr1.unshift('从头部无限添加');
+        arr1.unshift('从头部无限添加');
+        console.log(arr1)
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var str = "dfjeorqiweojwdddddeo";
+      // 求第一个字符再str 中出现的次数
+      // var count = 0;
+      // var one = str[0];
+      // for(var i= 0;i<str.length;i++){
+      //     if(one===str[i]){
+      //         ++count
+      //     }
+      // }
+      // console.log(count)
+
+      // 统计 对象下 d e 再str 中出现的次数是多少呢？
+        var one = { d: 0, e: 0 }; // 判断的是对象下每一个KEY 再str 中出现的了几次
+
+        for (var x in one) {
+          // 统计对象下每一个key 再str 中出现的次数
+          for (var i = 0; i < str.length; i++) {
+            if (x === str[i]) {
+              ++one[x];
+            }
+          }
+        }
+        console.log(one);
+
+ 
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wraper">
+        <div id = 'box' class="box">这是一个html</div>
+        <button id="btn">点击修改</button>
+    </div>
+    <script>
+
+        // var wrap = document.getElementsByClassName('box')[0];
+        // var btn = document.querySelector('#btn');
+        // btn.onclick = function (){
+        // // .innerHTML 修改html的内容
+        //     box.innerHTML= '修改后的内容';
+        // }
+        // console.log(box);
+        // console.log(btn);
+
+        var wraper = document.getElementsByClassName('wraper')[0];
+
+        //对象取值
+        console.dir(wraper.innerHTML)//html字符串
+        console.log(typeof wraper.innerHTML)//string
+        // 给innerHTML 重新赋值
+        // wraper.innerHTML = 'dddd'
+        // console.dir(wraper);//textContent: "dddd"
+
+        wraper.innerText = '啊啊啊';
+        console.log(wraper);//更改的是文本内容  输出<div class = 'wraper'>啊啊啊</div>
+
+        // 页面中所有的信息都是字符串
+        // 页面中标签 可以通过dom 选择器 获取dom对象 
+
+        // innerHTML 与innertext 区别？
+        // innerHTML 赋值为模板字符
+        // innerTEXT 赋值为文本内容
+        // 不论修改哪一个内容：HTML中内容 都会发货所能改变 推荐使用innerHTML
+    </script>
+</body>
+</html>

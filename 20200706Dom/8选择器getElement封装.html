@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap"></div>
+    <div id="box"></div>
+    <script>
+
+        // getElement() 选择器的封装 参数为字符串类型
+        getElement('div')
+        getElement('.wrap')
+        getElement('#box')
+        console.log(getElement('div'))
+        console.log(getElement('.wrap'))
+        console.log(getElement('#box'))
+
+
+
+        // 选择器的函数封装 错误优先原则 长度 类型 不能为空
+        function getElement(el){
+            if(arguments.length === 0){
+                return null;
+            }
+            if(arguments.length > 1){
+                throw new Error('params.length cannot gt 1 ')
+            }
+            if(typeof el !== 'string'){
+                throw new Error('params of type must be string')
+            }
+            if(el.charAt(0) === '.'){
+                el = el.substr(1);
+                return document.getElementsByClassName(el)//class 选择器
+            }else if(el.charAt(0)==='#'){
+                el = el.substr(1)
+                return document.getElementById(el) //id选择器
+            }else{
+                return document.getElementsByTagName(el) //元素选择器
+            }
+        }
+    </script>
+</body>
+</html>

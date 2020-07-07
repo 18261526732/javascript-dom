@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //直接创建bool 对象
+        var bool = true;
+        console.log(bool.constructor);
+
+
+        // 其他类型转换成布尔类型的显示转化
+        // 所有布尔类型的数的constructor 都是true
+        // Boolean() 是 js 原生的内置api
+        // 创建布尔对象的方式
+        // 1  通过new Boolean() 创建布尔对象 将其他的数据转化为布尔类型
+        var bool1 = new Boolean(true);
+        console.log(bool1)
+        
+        var bool2 = new Boolean('');
+        console.log(bool2)
+
+        var bool3 = new Boolean(0);
+        console.log(bool3)
+
+        var bool4 = new Boolean(null);
+        console.log(bool4)
+
+        var bool5 = new Boolean(undefined);
+        console.log(bool5)
+
+        var bool6 = new Boolean(123);
+        console.log(bool6)
+
+
+
+
+        // new 的底层原理是什么   new 内部做了什么
+    </script>
+</body>
+</html>

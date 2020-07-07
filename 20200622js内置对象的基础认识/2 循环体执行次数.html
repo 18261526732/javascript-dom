@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            // 可以在外面重新定义一个变量 然后再循环体外面输出 
+            // 循环体外面的输出 只会执行一次
+            // 变量的使用很重要
+
+        var count = 0;
+        var num = 0;
+        for (var i = 0; i < 9; i++){
+            // 如何统计里面的循环体执行次数
+            console.log('i',i)
+            num++;
+            for (var j = 0;j < 9;j++){
+                // 如何统计 for 的执行次数
+                ++count;
+                console.log(j,'==========')
+            }
+        }
+        console.log(count)
+        console.log(num)
+
+
+        // 上面的逻辑处理的数据结构------->多维数组  二维数组
+        // 1：先取出 1维数组下的数据
+
+        // var arr = [
+        //     ['aa','222'],
+        //     ['aa','222'],
+        //     ['aa','222','ddddd'],
+        //     ['aa','222'],
+        //     ['aa','222'],
+        //     ['aa','222','ddabcdd'],
+        //     ['aa','222']
+        // ]
+
+        // 动态获取多维数组数据
+        // for( var i = 0;i < arr.length;i++) {
+        //     console.log(arr[i])
+        //     for(var j = 0;j< arr[i].length;j++){
+        //         console.log(arr[i][j])
+        //     }
+        // }
+            // 获取 长度为三的数组
+        // for( var i = 0;i < arr.length;i++){
+        //     // 
+        //     if(arr[i].length == 3){
+        //         console.log(arr[i]);
+        //         for(var j = 0;j< arr[i].length;j++){
+        //         console.log(arr[i][j])}
+        //     }   
+        // }
+        // 循环体执行多少次
+        // 结果有多少个 只要是执行次数少的额 一定是用到了条件if
+    </script>
+</body>
+</html>

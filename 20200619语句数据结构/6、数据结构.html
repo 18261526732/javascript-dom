@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组当放的是相同的数据类型：要么都是数据 要么都是对象或者字符串
+        // 对象当中所放的是不同的数据类型结构
+        // 每一个数组都是有意义的  纪要让数据结构符合html结构 又要让意义相符合
+
+        // 锻炼：根据页面结构 分析所需要的数据结构
+
+        // 在js中轮播图数据存在方式
+
+        var swipers = [
+            'http://img4.imgtn.bdimg.com/it/u=2300247786,3490098668&fm=26&gp=0.jpg',
+            'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3314189121,1022414755&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg',
+        ]
+        // for (var i = 0;i < swipers.length;i++){
+        //     res += '<img src =\"" '+swipers[i]+\'>'
+        //     document.write(`
+        //         <img src="${swipers[1]}"
+        //     `)
+        // }
+
+        var nav = [
+            {
+                title:'会员中心',
+                icon:'iconfont1',
+            },{
+                title:'种草专辑',
+                icon:'iconfont2',
+            },{
+                title:'精选品牌',
+                icon:'iconfont3',
+            },{
+                title:'领券中心',
+                icon:'iconfont4',
+            },{
+                title:'签到',
+                icon:'iconfont5',
+            },
+        ]
+
+        var title = [
+            {list:'精选',dec:'为你推荐'},
+            {list:'精选',dec:'为你推荐'},
+            {list:'精选',dec:'为你推荐'},
+            {list:'精选',dec:'为你推荐'}
+        ]
+
+        var production = [
+            {
+                img:'图片地址',
+                dec:'详情描述',
+                price:{
+                    img:'iconfont',
+                    price:99.0,
+                    shopping:'已授899件',
+                },
+            },
+            {
+                img:'图片地址',
+                dec:'详情描述',
+                price:{
+                    img:'iconfont',
+                    price:99.0,
+                    shopping:'已授899件',
+                },
+            },
+            {
+                img:'图片地址',
+                dec:'详情描述',
+                price:{
+                    img:'iconfont',
+                    price:99.0,
+                    shopping:'已授899件',
+                },
+            },
+            {
+                img:'图片地址',
+                dec:'详情描述',
+                price:{
+                    img:'iconfont',
+                    price:99.0,
+                    shopping:'已授899件',
+                },
+            },
+        ]
+
+        var top = {
+            img:[
+                '图片链接',
+                '图片链接',
+                '图片链接',
+                '图片链接',
+            ],
+            nav:[
+            {
+                title:'会员中心',
+                icon:'iconfont1',
+            },{
+                title:'种草专辑',
+                icon:'iconfont2',
+            },{
+                title:'精选品牌',
+                icon:'iconfont3',
+            },{
+                title:'领券中心',
+                icon:'iconfont4',
+            },{
+                title:'签到',
+                icon:'iconfont5',
+            },
+            ]
+        }
+
+        var shopTime = {
+            shop:'限时抢购',
+            time:'15:35分',
+            dec:'每天10点，限时秒杀',
+            product:[
+                {
+                    img:'http:',
+                    icon:'iconfont',
+                    price:'99元',
+                }
+            ],
+        }
+
+
+
+
+        console.log(title)
+        console.log(top)
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .radio{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <button id="btn">点击变园</button>
+    <script>
+        
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var btn = document.getElementById('btn')
+        console.log(wrap.className)//wrap  返回的是元素的类名字符串
+        wrap.className = 'wrap size '//更改类名 添加类名 相当于是对类名字符串重新赋值
+        // console.log(wrap.className)//获取类名
+
+        // calssName  返回的是类名字符串 classList 返回的是类名【类数组】
+        // console.log(wrap.className)// 返回的是类名字符串
+        // 添加类名 修改类名
+        // wrap.className = 'wrap size'//<div class="wrap"></div>修改为了 <div class="wrap size"></div>
+        
+        // // 通过classList 添加类名 从而添加 css样式
+
+        // 修改css样式方法一
+        // var res = [...wrap.classList];//将一个伪数组通过展开运算符变成真数组
+        // res.push('radio');//向数组中添加一个 类名
+        // res = res.join(' ')//将数组转换成字符串 用空格替换字符串的逗号
+        // console.log(wrap.classList) //返回值为数组
+        // console.dir(wrap.classList) //返回值为目录式数组
+
+        // 方法二
+        // btn.onclick = function(){
+        //     var strClass = wrap.className;//输出字符串
+        //     wrap.className = strClass + ' ' + 'radio'//对类名字符串进行拼接 来达到添加类名的目的
+        // }
+
+        // 方法三  添加点击事件函数
+        btn.onclick = function(){
+            var names = wrap.classList;
+            var names = [...names];
+            names.push('radio')
+            names = names.join(' ')
+            wrap.classList = names
+        }
+
+
+    </script>
+</body>
+</html>

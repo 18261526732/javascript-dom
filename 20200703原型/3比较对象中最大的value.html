@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 比较对象中 value值大小
+        var obj = {
+            a:12,
+            b:23,
+            c:44,
+            d:2
+        }
+
+        var max = 0;
+        var maxKey = '';
+        for (var z in obj){
+            if(max < obj[z]){
+                max = obj[z]
+                maxKey = z
+            }
+        }
+        console.log(maxKey,max)
+
+    </script>
+</body>
+</html>

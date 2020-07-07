@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包  特殊就是特殊情况下 不会被释放的  是否被释放取决于这个变量是否还会被使用
+        // 大的作用域  不能访问小的作用域
+
+        // 变量的使用规则是什么？
+        // 第一步 在自己的作用域中找 var 声明的变量
+        //        - 如果没有 会去上一层作用域中去找  直到找到全局的作用域为止
+        //        - 如果一直都没有  就报错
+        //        - 在中间任何一个作用域中找到了 那么就会使用那一层的变量
+
+
+        var test = '测试变量';
+        function foo(){
+            var a = '11';
+            var c = 'ccc'
+            console.log(a)
+            function bar(){
+                var b = 'b';
+                ++a
+                console.log(a)
+            }
+            bar()
+        }
+
+        foo()
+    </script>
+</body>
+</html>

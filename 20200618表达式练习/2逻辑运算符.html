@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        // 复杂表达式 包含多种类类型运算
+        // var res = 2 > 1 && null==null && 2 - 1;// 1
+        // var res2 = []==='' && (1+2)*1 && 'a'>'b'
+        //     res2 = []===''&&(1+2)*1  && 'a'>'b'
+        //     res2 = false && (1+2)*1  && 'a'>'b'
+        //     res2 = false
+        //&& 与运算符的运算规律 
+        // 从左往右 依次运算 第一个是true 则进行下一个 遇到第一个false 返回false的原值
+        // 如果运算到最后一个表达式都是true，则返回true或者返回 最后一个表达式的结果 或者直接返回数据
+        //  如果一直都没有false； 最后一个是表达式；返回 表达式运算结果；
+        //  左后一个如果是js 数据直接返回数据
+        // var res = {} && '123'   //123
+        // var res = '123' && []   //[]
+        // var res = {} && true && 123 //123
+
+
+
+      //   var a = 20;
+      //   var res = (a % 4 == 0 && a % 100 != 0)&& a % 400 == 0;
+      //       res = (0 == 0 && 20 % 100 != 0)&& 20 % 400 == 0;
+      //       res = (true && 20 % 100 != 0)&& 20 % 400 == 0;
+      //       res = (true && 20 != 0)&& 20 % 400 == 0;
+      //       res = (true && true)&& 20 % 400 == 0;
+      //       res = true && 20 % 400 == 0;
+      //       res = true && 20 == 0;
+      //       res = true && false;
+      //       res = false
+
+        //  || 或运算符的运算规则
+        /**
+        1、从左到右依次计算 第一个是false 进行下一个遇到第一个true 就返回true表达式的原值 或者返回true
+        2、如果一直没有true 就返回最后一个表达式的结果
+           最后一个如果是js数据直接返回数据
+        **/
+        // var a = 20
+        // var res =  (a % 4 == 0 || a % 100 != 0) || a % 400 == 0;
+        //     res =  (20 % 4 == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        //     res =  (true == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        //     res =  (true || 20% 100 != 0) || 20 % 400 == 0;
+        //     res =  (true) || 20 % 400 == 0;
+        //     res =  true || 20 % 400 == 0;
+        //     res = true
+
+        // var res = {} || ''//object
+        // var res = '' || {}//{}
+
+        // 单个数据 返回数据原值
+        // var res = undefined || null  // null 
+        // var res  = null || false  // false
+        // var res = false || '' //  ''
+        // var res = '' || 0  // 0
+
+        // var res = undefined || null || false || '' || 0;      
+        //     res =   null || false || '' || 0 ;
+        //     res =   false || '' || 0 ;
+        //     res =    '' || 0 ;
+        //     res =     0 ;
+
+        // ! 非运算  直接两个结果 true false
+        // 所以数据类型的隐式转换 也应该转换为boolean
+        // 第一步：看是不是！
+        // 第二步：将操作符转为布尔类型
+        // 第三：取反
+        // var res = !'' //---->!false  输出true
+
+        // var res = !'' + 1
+        //     res = true + 1
+        //     res =  1+1 
+        //     res = 2
+
+        var res = 1+2 +!0
+            // res = 1+2 + !false
+            // res = 1+2+true
+            // res = 1+2+1
+            // res = 4
+
+        var res1 = !1
+            // res1 = !true
+            // res1 = false  
+
+        var res2 = !'ddd'
+            // res2 = !true
+            // res2 = false
+        
+        var res3 = !null
+            // res3 = ! false
+            // res3 = true
+
+        var res4 = !undefined
+            // res4 = !false
+            // res4 = true
+
+        var res5 = !''
+            // res5 = !false
+            // res5 = true
+
+        var res6 = !NaN
+            // res6 = !false
+            // res6 = true
+
+        var res7 = 2 - !'ddd'
+            // res7 = 2 - !true
+            // res7 = 2 -false
+            // res7 = 2 - 0
+            // res7 = 2
+
+        var res9 = 1 + !'' + 3 -1 +'' 
+            // res9 = 1 + !false + 3 - 1 + ''
+            // res9 = 1 + true + 3 - 1 + ''
+            // res9 = 1+1+3-1+''
+            // res9 = 4+''
+            // res9 = '4'
+        console.log(typeof res9, res9)
+
+
+        var res = "aa" > "" && !(1 < 2 || (1 - 1 && [] > {})) && "" == [];
+            res = 'aa' > "" && !(1 < 2 || (0 && false)) && "" == [];
+            res = 'aa' > "" && !(1 < 2 || false) && "" == []
+            res = 'aa' > "" && !true && "" == []
+            res = 'aa' > "" && false && "" == []
+            res = true && false &&"" == []
+            res = false 
+            console.log(typeof res, res)
+    </script>
+</body>
+</html>

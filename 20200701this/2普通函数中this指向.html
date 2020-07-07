@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 先看this在哪个作用域中 
+        // 在全局：普通对象 if for （） { } 没有特殊情况 指向window
+        // 在局部作用域：(function 中)，普通的 谁调用 指向谁 （谁触发指向谁）
+        var name = '周超';
+
+        function foo(){
+            var name = '刘玉才';
+            var age = 18;
+            console.log(this.name)//谁调用指向谁 window.foo()调用 指向window
+        }
+
+        var person = {
+            name:'顾坤',
+            age: 22,
+            dec:'秀儿',
+            foo:foo,
+            ao:{
+                // 全局作用域GO
+                name:'王宇航',
+                foo:foo,
+            },
+            // GO作用域
+            do:this.name//指向window下的周超
+        }
+        console.log(person)
+        // 谁调用指向谁 仅看函数执行左边最近的对象是谁
+        foo()//输出周超  默认省略window
+        person.foo()// 输出顾坤 person调用 指向person
+        person.ao.foo()//输出王宇航
+
+        
+        
+    </script>
+</body>
+</html>

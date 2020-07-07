@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this 是状态机 是动态变化的对象 随着作用域的改变而改变
+        // this 初始化类似变量  不是默认存在的 伴随着作用域的产生而存在的
+        // 一个没有作用域的语法糖 是没有this的
+        // 语法糖：由js代码片段形成的具有功能性的api
+
+
+        // 掌握：如何判断this指向  在什么环境下指向谁  环境是指全局作用域 或者是局部作用域
+        // this 只能指向的是对象 
+
+        console.log(this)//全局下 指向的window
+
+
+        // function 方法体中this指向谁
+
+        function foo(){
+            console.log(this,'1111111111111')//window  因为是在window下调用的函数
+            console.log('window下的函数')
+        }
+        foo()

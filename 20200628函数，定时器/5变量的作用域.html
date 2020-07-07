@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var 声明的变量
+        // 什么是作用域？---->一个变量在哪能够被使用： 使用的哪一个值
+        // 作用域分类 ：全局作用域  局部作用域
+
+        // 使用的范围  以及使用的值 ------->变量的使用规则
+
+
+        // 什么是全局作用域：window对象下的是全局的  常见：var for if 
+        // 全局作用域的特点：不论在哪里都可以被访问
+        // window 是浏览器对象 是js的全局对象 也是最大的对象
+
+        // 什么是局部作用域：function函数 方法体中 var声明的变量就是局部的 常见：function
+        // 局部作用域的特点：私有的 仅能在函数内部访问
+
+        var test = '测试';
+        console.log(test)
+        for(var i = 0; i < 3; i++){
+            console.log(test)
+        }
+        console.log(i)
+        function foo (){
+            var x = '函数体内变量';
+            console.log(test);
+            console.log(i)
+            console.log(x)
+        }
+        // console.log(x)//私有的变量不能随便被访问
+        foo()
+    </script>
+</body>
+</html>

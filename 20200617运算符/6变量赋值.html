@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //js 代码运行方式从上往下运行：同步的
+        //所以使用变量时：程序只会往上找 不会往下找 找距离他最近的一次赋值
+        //变量的重新赋值
+        var str = '123';
+        console.log(str);//给变量重新赋值
+            str = '重新赋值';
+        console.log(str); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数没有this指向 
+        // 箭头函数的this指向 用的是上一层作用域的this指向 继承的
+
+        // 这就是箭头函数
+        // 他的上一层的作用域为全局 所以this指向window
+        var obj = () => {
+            console.log(this)
+        }
+        var foo = {
+            obj:obj,
+        }
+        // foo.obj()
+        function bar(){
+            console.log(this)
+            var obj = {
+                foo:()=> {
+                    // 没有this存在 但是可以使用 用的是上一层的this指向
+                    console.log(this)
+                }
+            }
+            obj.foo()
+            setTimeout(()=>{
+                console.log(this)
+            },500);
+        }
+        bar()
+
+        // 总结 箭头函数方法体中没有this
+        // 如何判断箭头函数的内部this
+        // 【仅看】箭头函数的【上一层作用域】this是什么
+    </script>
+</body>
+</html>

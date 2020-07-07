@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 3.求输出结果
+    // for (let i = 0; i < 5; i++) {
+    //     //let  声明额变量没有变量提升过程 没有作用域  叫做块级域
+    //     setTimeout(function () {
+    //         console.log('delayer:' + i)//0 1 2 3 4
+    //     }, 0)
+    // }
+
+    //     (function() {
+    //     var num = 1;
+    //     var e = {};
+    //     function add(num) {
+    //         return num++;
+    //     }
+    //     e.getAddNum = function () {
+    //         return add(num);
+    //     }
+    //     window.a = e
+    // }) ()
+    // // 不加括号 不是立即执行函数 报错
+    // console.log(a.getAddNum());//1
+    // console.log(a.getAddNum());//1  因为是后++ 所以返回的先11
+
+
+    //     (function() {
+    //     var num = 1;
+    //     var e = {};
+    //     function add(num) {//形参是声明变量 实参是赋值
+    //         return num++;//undefined ++ == NAN
+    //     }
+    //     e.getAddNum = function () {
+    //         return add();//NAN
+    //     }
+    //     window.a = e 
+    // })()
+
+    // console.log(a.getAddNum());//NAN
+    // console.log(a.getAddNum());//NAN为是后++ 所以返回的先11
+
+    // 8.求console.log()的输出结果
+    // var a = 9;
+    // function fn() {
+    //     a = 0;
+    //     return function (b) {
+    //         return b + a++;
+    //     }
+    // }
+    // // GO{a :oundefined
+    // //      fn: function}---->GO{a : 9
+    // //                           fn : funtion}
+
+    // var f = fn();
+    // console.log(f(5));//5 // AO{} GO {a:9---->a:0}
+    // console.log(fn()(5));//函数体 5 GO {a:1--被重新赋值-->a:0}
+    // console.log(f(5));//6 5+1      GO {a:1---->a:a++ = 2}
+    // console.log(a);//2  
+
+
+
+        // 9.求输出结果
+    // function fn(i) {
+    //     return function (n) {
+    //         console.log(n + (i++));
+    //     }
+    // }
+    // var f = fn(10); //GO{fu :function  } i:11  AO{i:undefined n:undefind}
+    // f(20);//30  AO{i:20 n：10}  
+    // fn(20)(40);//60 AO{i:20 n:40} i是自增在后
+    // fn(30)(50);//80 AO{i:20 n:40}  两个包互不干扰
+    // f(30);//41
+
+    // 10.问:三行a,b,c的输出分别是什么
+    function fun(n, o) {
+        console.log(o)
+        return {
+            fun: function (m) {
+                return fun(m, n);
+            }
+        };
+    }
+
+    /*
+    GO{
+        a:undefined 
+        b:undefined
+        c:undefined
+        fun:function
+    }
+    */
+    var a = fun(0); 
+    a.fun(1);
+    a.fun(2);
+    a.fun(3);
+    /*
+    AO n:undefined ----实参---> n:0
+        m:undefied --实参--> m:1  fun(1,0) 
+        n:1 o:0 --->console.o:0
+        
+    */
+    var b = fun(0)
+    b.fun(1)
+    b.fun(2)
+    b.fun(3);
+    var c = fun(0)
+    c.fun(1);
+    c.fun(2);
+    c.fun(3);
+
+    </script>
+</body>
+</html>

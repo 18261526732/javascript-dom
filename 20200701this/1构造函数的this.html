@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 什么是构造函数 ： 作用：创建对象 面向对象的思维
+        // 有return的函数不一定是构造函数
+
+        
+        // 什么是构造函数  new调用的函数就是构造函数
+        // 所有的对象都有构造函数  obj.contructor 获取
+        // 有return返回值的不是构造函数
+        // 在构造函数中this指向的是new创建的对象
+        var name = '周超';
+        var color = '白色';
+        function Animal(type,name,color,eat){
+            console.log(this)//指向对象
+            this.type = type;
+            this.name = name;
+            this.color = color;
+            this.eat = eat;
+            this.do = function(){
+                // 是一个普通函数 用其他方式判断？
+                // 谁调用指向谁（指的是调用的对象）
+                alert(this.name + '是' + this.color)
+            }
+        }
+
+
+        
+        var dog = new Animal('哺乳动物','猫咪','白色',function(){
+            console.log('喜欢吃小鱼干')
+        })
+        var fish = new Animal('水生动物','金鱼','红色',function(){
+            console.log('喜欢吃虾米')
+        })
+        dog.eat();
+        fish.eat();
+        console.log(dog,fish)//输出的也是对象
+        // dog.do();
+        // fish.do();
+
+        var done = dog.do;
+        done();
+    </script>
+</body>
+</html>

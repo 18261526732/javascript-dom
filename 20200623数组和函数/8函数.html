@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(a){
+            console.log(a)
+            // return 返回值  可以将函数方法体运算的结果 返回给函数外部 那么变量就可以接受函数运行结果
+            // return 以下的代码不执行 作用：结束语句
+            // 返回值可以是任意类型
+
+            return '我是return返回值'
+            console.log('我被打断')
+        }
+        // 如果foo没有返回值  那么 res等于undefined 
+        // 有返回值  res等于foo return的内容
+        var res = foo(['11'])
+        console.log(res)
+
+        var bar = function(){
+            console.log('222')
+        }
+        bar ()
+    </script>
+</body>
+</html>

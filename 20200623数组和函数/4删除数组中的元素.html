@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5,]
+
+        // 从尾部删除
+        // arr.pop() 从尾部删除元素 长度减一
+        // var res1 = arr.pop()//返回被删除的元素
+        // console.log(res1)
+        // console.log(arr)
+
+        // 从头部删除
+        //  var res2 = arr.shift()//返回0从头部删除的数据
+        //  console.log(res2)
+        // console.log(arr)
+
+        //注意：关于删除数组元素
+        // 1：长度变化 for 选中 会有两个变化的值
+        // 2：不能删除干净 原因 i递增 长度自减  所以导致删除不干净
+
+        // 这个是一个错误的思路
+        // var count = 0
+        // var arr = [1,2,3,4,5,6,7,8]
+        // for (var i = 0;i<arr.length;i++){
+        //     arr.pop() 
+        //     console.log(count++)
+        // }
+        // console.log(arr)
+
+
+        // 需求 用for循环清空数据
+        var arr = [1,2,3,4,5,6,7,8]
+       //显示是终端的显示方式  但是长度为0
+        for (var i = arr.length;i>0;i--){
+            arr.pop()
+            console.log(arr)
+        }
+         console.log(arr)
+    </script>
+</body>
+</html>

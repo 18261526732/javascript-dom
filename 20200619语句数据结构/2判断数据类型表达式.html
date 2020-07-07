@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 完成需求
+        var date = ""
+        // 如何保证变量一定是Number
+        var res = typeof data === "number";
+        var res = data.construtor === Number;
+        // 如何保证变量一定是String
+        var res1 = typeof data === "string";
+        var re1 = data.construtor === String;
+        // 如何保证变量一定是Boolean
+        var res2 = typeof data === "boolean";
+        var re2 = data.construtor === Boolean;
+        // 如何保证变量一定是undefined
+        var res3 = typeof data === "undefined";
+        // 如何保证变量一定是null
+        var res4 = data === null;
+        // 如何保证变量一定是数组
+        var res5 = Array.isArray(data);
+        var res6 = data.construtor === Array;
+        var res7 = data instanceof Array;
+        // 如何保证变量一定是对象
+        var res8 = date.constructor === Object;
+        // 如何保证变量一定是函数
+        var res9 = data.construtor === Function;
+        var res10 = typeof data === "function";
+
+        // 如何判断一个变量不是number类型
+        var res11 = typeof date != 'number'//返回true 不是number
+        // 或者 typeof date ==='number' 返回false
+
+        // 如何让变量赋值保证是number 或者是String
+        var res = typeof date === 'number' || typeof date === 'string'
+
+        // 如何让变量时数组或对象
+
+        var res13 = date instanceof Object
+        var res14 = date.constructor == Array || date.constructor == Object
+
+
+        var a;
+        var b;
+        var c;
+        //  a 不能是number 
+        var res = typeof a !='number' && b.constructor==Array || typeof c ==='string'
+        //    返回true                         true
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何模拟concat 合并arr 与 res
+        // 模拟 revers
+        // var arr = [1,2,3,4,5,6]
+        // var res = [3,4,5]
+
+        // 合并
+        // res.forEach(function(item){
+        //     arr.push(item)
+        // })
+
+        // 合并
+        // var result = arr
+        // for(var i = 0; i < res.length; i++){
+        //     result.push(res[i])
+        // }
+        // console.log(result)
+
+        // 反转
+        // var revers = []
+        // for(var i = 0; i < arr.length; i++){
+        //     revers[i] = arr[arr.length-i-1]
+        // }
+        // console.log(revers)
+
+        // 数组排序
+        // 注意：只要是对数组操作 要知道是修改原有数组  还是返回一个新的数组
+        var arr = [1,2,3,4,5,6,22,444,2,4]
+        for(var i = 0; i < arr.length; i++){
+           for(var j = i; j < arr.length; j++){
+               if(arr[i] < arr[j]){
+                   var x = arr[i]
+                   arr[i] = arr[j]
+                   arr[j] = x
+               }
+           } 
+        }
+        console.log(arr)
+    </script>
+</body>
+</html>

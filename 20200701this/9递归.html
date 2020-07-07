@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //递归：函数内部自己调用自己
+        
+
+        // 坑：死循环  找出口
+        // function foo(){
+        //     console.log(++count)
+        //     foo()
+        // }
+        // foo()
+
+
+        // 做递归：1：找规律(数学公式)  2：找出口
+
+        // 
+
+        // var count = 0;
+        // function foo(){
+        //     // 当count>10 的时候 结束
+
+        //     if(count > 10){
+        //         return
+        //     }
+        //     console.log(++count)
+        //     foo()    
+        // }
+        // foo()
+
+
+        // 要求 求1+2+3+4+....+n 的和  用递归做
+        // 1、找规律 
+        function sum (n){
+            
+            if(n == 1) {return 1};
+            return sum(n-1) + n;
+           
+        }
+        console.log(sum(10))
+
+        // function sum (n){
+            
+        //     if(n == 10) {return 10};
+        //     return sum(n+1) + n;
+           
+        // }
+        // console.log(sum(1))
+        
+    </script>
+</body>
+</html>

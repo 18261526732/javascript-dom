@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,3,3,3,4,4,55,54,51];
+        var res = [1,2,44,5,66,55] //保证res中数据 不是重复的
+        // var flag = false
+        // for(var i = 0;i < arr.length;i++){
+        //     for(var j = 0;j <= res.length;j++){
+        //         //遍历数组 让两个数组里的值进行比较 然后添加不重复的数组
+        //         if(arr[i]===res[j]){
+        //             flag=true
+        //             break
+        //         }else {
+        //             flag=false
+        //         }          
+        //     }  
+        //         if(!flag){
+        //             res.push(arr[i]);
+        //         }  
+        // }
+        // console.log(res)
+
+        var res1 = [];
+        for(var i = 0; i < arr.length; i++){
+            if(res1.indexOf(arr[i])==-1){
+                res1.push(arr[i])
+            }
+        }
+        console.log(res1)
+    </script>
+</body>
+</html>

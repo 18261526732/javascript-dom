@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('bbbbbbbbbbbbbbbb')
+        // setTimeout  是个异步
+        // 需要慢一点的执行的  并且代码放在上面 才需要异步
+        // 同步代码都是最快的  六种异步代码：回调函数  setTimeout
+
+        // setTimeout ----> 定时器  参数一：是回调函数
+                            //      参数二：是时间：表示经过16.2ms后执行回调函数
+                            //      浏览器刷新时间为16.2ms
+        setTimeout(function () {
+            console.log('aaaaaaaaaaaaaaaaa')//放在上面了 但是是异步代码  所以后面执行了
+        },16.2);
+
+        setTimeout(function () {
+            console.log('-----------------')
+        },0);
+
+        console.log('1111111111111111')//放在下面 但是是同步代码 所以先执行
+    </script>
+</body>
+</html>

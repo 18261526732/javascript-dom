@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+       && 运算符的 运算顾虑
+       1；从左往右依次运算，第一个是true  进行下一个；遇到第一个false 时候；返回false 
+          如果一直都没有false； 最后一个是表达式；返回 表达式运算结果；
+          左后一个如果是js 数据直接返回数据
+        
+        */
+
+      // 复杂表达式  包含多中重类运算符
+      //   var res = 2 > 1 && null == null && 2 - 1;
+      //   console.log(res);
+      //   var res1 = "" == [] && "a" < "y" && [] > {};
+      //   console.log(res1);
+      //   var res2 = [] === "" && (1 + 2) * 1 && "a" > "b";
+      //   res2 = false;
+
+      //   var res  = {} && 'qer'  // qer
+      //   var res = "qer" && {};  // {}
+      //   var res = {} && true && 123; // 123
+      // var res = {} && "gukun" && 32 - 1; // 31
+      //   console.log(res);
+
+      //   var a = 20;
+      // var res = (a % 4 == 0 && a % 100 != 0)&& a % 400 == 0;
+      //     res = (0 == 0 && 20 % 100 != 0)&& 20 % 400 == 0;
+      //     res = (true && 20 % 100 != 0)&& 20 % 400 == 0;
+      //     res = (true && 20 != 0)&& 20 % 400 == 0;
+      //     res = (true && true)&& 20 % 400 == 0;
+      //     res = true && 20 % 400 == 0;
+      //     res = true && 20 == 0;
+      //     res = true && false;
+      //     res = false
+
+      /**
+         || 运算符的 运算顾虑
+       1；从左往右依次运算，第一个是false  进行下一个；遇到第一个true 时候；返回true 
+          如果一直都没有true, 最后一个是表达式；返回 表达式运算结果；
+          左后一个如果是js 数据直接返回数据
+         */
+
+      // var a = 20
+      // var res =  (a % 4 == 0 || a % 100 != 0) || a % 400 == 0;
+      //     res =  (20 % 4 == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+      //     res =  (true == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+      //     res =  (true || 20% 100 != 0) || 20 % 400 == 0;
+      //     res =  (true) || 20 % 400 == 0;
+      //     res =  true || 20 % 400 == 0;
+      //     res = true
+
+      // var res = {} || ''  // {}
+      // var res = '' || {}  // {}
+
+      // var res = null || ''==[] // true
+      // res = false || true
+      // res = true
+
+      // var res = undefined || null  // null
+      // var res  = null || false  // false
+      // var res = false || '' //  ''
+      // var res = '' || 0  // 0
+
+      // var res = undefined || null || false || '' || 0;
+      //     res =   null || false || '' || 0 ;
+      //     res =   false || '' || 0 ;
+      //     res =    '' || 0 ;
+      //     res =     0 ;
+      // console.log(res)
+
+      // ！直接两个结果 true false
+      // 所以：数据类型的隐士转化；也应该转为 boolean
+      // 第一步：看是不是 !
+      // 第二步：将操作数转为布尔类型
+      // 第三步：取反
+
+      // var res = !'' // !false ---> true
+      // var res = !'' +1
+      //     res = true + 1
+      //     res = 2
+
+      // var res = 1+!''; //  运算符优先及
+      // res = 1+ true
+      // res = 2
+      // var res = 1+2*3
+      //     res = 1+6
+      //     res = 7
+
+      // var res = 2>1&&!'ddd'
+      //     res = true && !'ddd'
+      //     res = true && false
+      //     rest = false
+
+      // var res = ![]    // Boolean([]) ---> true
+      //     res = !true
+      //     res = false
+
+      // var res = !{}
+      // console.log(res);
+      var res = 1 + 2 + !0;
+      // res = 3+!0
+      // res = 3+!false
+      // res = 3+true
+      // res = 3+1
+      // res = 4
+      var res1 = !1;
+      // res1 = !true ;
+      // res1 = false;
+      var res2 = !"ddd";
+      // res2 = !true
+      // res3 = false
+      var res3 = !null;
+      // res3 = !false
+      // res3 = true
+      var res4 = !undefined;
+      // res4 = !false
+      // res4 = true
+      var res5 = !"";
+      // res5 = !false
+      // res5 = true
+      var res6 = !NaN;
+      // res6 = !false
+      // res6 = true
+      var res7 = 2 - !"ddd";
+      // res7 = 2-!true
+      // res7 = 2-false
+      // res7= 2-0
+      // res7=2
+      var res9 = 1 + !"" + 3 - 1 + "";
+      // res9 = 1+!false+3-1+''
+      // res9 = 1+true+3-1+''
+      // res9 = 1+1+3-1+''
+      // res9 = 2+3-1+''
+      // res9 = 5-1+''
+      // res9 = 4+''
+      // res9 = '4'
+
+      var res8 = ({} > [] && 2 > 1) || "dd" > "aa" || !"";
+      // res8 = '[ObjectObject]'>'' && 2>1 || 'dd'>'aa' || !''
+      // res8 = true && 2>1 || 'dd'>'aa' || !''
+      // res8 = true && true || 'dd'>'aa' || !''
+      // res8 = true || 'dd'>'aa' || !''
+      // res8 = true
+
+      console.log("a" == "        a"); // false
+      console.log("a".charCodeAt());
+      console.log("           a".charCodeAt());
+
+      // var res = "aa" > "" && !(1 < 2 || (1 - 1 && [] > {})) && "" == [];
+      // res = true && !(1 < 2 || (1 - 1 && [] > {})) && "" == [];
+      // res = true && !(1 < 2|| (0 && [] > {})) && "" == [];
+      // res = true && !(1 < 2|| (0 && false)) && "" == [];
+      // res = true && !(1 < 2|| false) && "" == [];
+      // res = true && !(true|| false) && "" == [];
+      // res = true && !true && "" == [];
+      // res = true && false && "" == [];
+      // res = false
+
+
+    </script> 
+  </body>
+</html>

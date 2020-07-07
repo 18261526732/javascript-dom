@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 什么是数组
+        /**
+        数组的特点：
+        1、数组有下标值，也叫索引 可以根据索引获取数组元素
+        2、数组有长度：长度表示数组元素的个数
+        3、数组元素为js任意数据类型 数组长度可以为无数个
+        **/
+        var arr = [1,'2',true,null,undefined,[],{}];
+        console.log(arr)
+
+        // 如何通过索引值获取数组元素
+        var res = arr[1];
+        console.log(res)
+
+        // 如何获取第一个元素
+        var first = arr[0];
+        console.log(first)
+
+        // 如何获取第n个元素
+        // var firstn = arr[n-1];
+        // console.log(firstn)
+
+        // 如何获取数组的长度
+        // var len = arr.length   写法1
+        var len = arr ['length']  //写法二
+        console.log(len)
+
+        // 如何获取倒数第一个元素
+        var len = arr ['length']
+        var last = arr [ arr['length'] - 1]
+        console.log(last)
+
+        // 如何获取倒数第二个元素
+        var len = arr ['length']
+        var last2 = arr [ arr['length'] - 2]
+        console.log(last2)
+
+        // 如何获取倒数第n个元素
+        var len = arr ['length']
+        var lastn = arr [ arr['length'] - n]
+        console.log(lastn)
+    </script>
+</body>
+</html>

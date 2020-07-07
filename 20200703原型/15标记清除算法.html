@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(){
+            var a =0;
+            return function(){
+                console.log(++a)
+            };
+        };
+        // 因为res 引用了return返回的函数
+        // 在res执行时候 ：需要引用foo中的 AO 对象下的a属性
+        // 所以foo的AO 对象不会被回收  导致内存泄漏
+        var res = foo();
+        res();
+        res();
+        // 当闭包完成任务后 找到完成任务的条件  然后清空res 那么foo的AO对象就不会再被引用 所以就实现了清空闭包缓存
+        res = null;
+
+        // foo中的AO会被回收
+        foo()()//因为没有任何变量和属性：引用return 返回的函数 所以AO 回收  也就是AO销毁
+    </script>
+</body>
+</html>

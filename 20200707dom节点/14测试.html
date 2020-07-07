@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>这是一个段落
+        <span>aiffioawe</span>
+    </p>
+    <script>
+        var content = document.getElementsByTagName('p')[0];
+        var spanContent = document.querySelector('span');
+        // console.log(content.innerHTML)//获取的自身元素下的所有内容，包括标签                            
+        // console.log([content.innerText])//获取 本身和所有的后代元素的文本内容
+        // console.log(content.innerHTML = '1234&nbsp; &nbsp; &nbsp;56<h1>hhhh</h1>')//修改时， 可以自动解析赋值中的标签以及特殊字符（&nbsp;）                    
+        // console.log(content.innerText = '1234&nbsp; &nbsp; &nbsp;56<h1>hhhh</h1>')//修改时，不解析赋值的内容，包括标签 包括(&nbsp);
+    </script>
+</body>
+</html>

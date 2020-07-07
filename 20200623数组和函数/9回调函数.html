@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 什么是回调函数：
+            // 将一个函数作为参数的方式传递给另一个函数
+         // 回调函数的弊端：代码的可读性差
+        // 优势：异步处理程序，可以将执行慢的代码放在回调函数中
+
+        function foo(callBack){
+        //    console.log('foo')
+           console.log(callBack)
+           //bar() //直接在一个函数中调用一个函数
+           callBack()// 回调函数 
+        }
+
+         var bar = function () {
+             console.log('我是回调函数')
+         }
+        //  如果想让bar 函数执行 在foo 函数中执行 有几种方式
+        //将bar 实参传给形参  形参接受实参
+        foo(bar) 
+         
+        //  两个变量 虽然赋值同一个值 但是本质是两个变量 不一样
+    </script>
+</body>
+</html>

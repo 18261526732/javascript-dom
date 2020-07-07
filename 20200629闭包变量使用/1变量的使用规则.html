@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        
+        
+        */
+        var a = 100;
+
+            function testResult() {
+
+                var b = 2 * a;
+
+                var a = 200;
+
+                var c = a / 2;
+
+                alert(b);
+
+                alert(c);
+
+            }
+
+            testResult()
+        /*
+         GO {
+            a:undeifined -----100
+            testtestResult(）：function
+        }
+        AO{
+            b:undefined
+            a:undefined
+            c:undefined
+        }
+        AO{
+            省略了 形参  以及形参和实参的赋值统一
+            b:2*undefined --a还是undefined-->NAN
+            a:undefined   --赋值--->200 //自己作用域有赋值且生命 所以不会去看全局的作用域
+            c:undefined   ------200/2---->100
+        }
+        */
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'duuafiubauivbifniawjcbuhiwafank1382476'
+        // slice（n,m）表示从第几个索引值字符 截取到第几个索引字符；不包含endIndex 包含starIndex
+        //  片段字符长度 endIndex - starIndex
+        var res = str.slice(5,12);
+        console.log(res)
+        // str.substring(starIndex,len) 表示从第几个字符开始截取字符，截取的字符长度我len
+        var res1 = str.substr(3,10);
+        console.log(res1)
+
+        var res2 = str.substring(5,10);
+        console.log(res2)
+
+        // str.charAt() 返回传入索引值对应的字符
+        var res3 = str.charAt(3)
+        console.log(res3)
+
+        // 所有字母变小写
+        var res4 = str.toLocaleLowerCase()
+        console.log(res4)
+        // 所有字母变大写
+        var res5 = str.toLocaleUpperCase()
+        console.log(res5)
+
+    </script>
+</body>
+</html>

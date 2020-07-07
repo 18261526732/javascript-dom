@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var n = 123;//内存  栈 给n变量分配空间 用来存123
+        var str = '1321435bsigwb';  //内存  栈 给str变量分配空间 用来存字符串
+        var arr = [1,2,3];//内存给数据及其元素分配空间
+                        // 栈给 arr 存指针：栈存元素。堆创建=空间尊数组，提供指针
+
+        function foo(){
+            return 1+2  //给函数（可调用的内容）分配内存
+        };              //栈 foo 存指针 堆存函数提供指针
+                        // 函数调用，栈存返回值 （返回值没有变量引用，计算机销毁 销毁的是a+2
+
+
+
+        var o = {
+            name:'1224'         //栈 给 o 分配空间，存指针。 栈，给对象下属性name数据分配空间 用来存value值
+                                // 堆来存对象数据
+        };
+        
+        
+    </script>
+</body>
+</html>

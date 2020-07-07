@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求 1*2*3*4...20
+        // var res = 1;
+        // for (var i = 1; i <= 20; i++) {
+        //     res *= i;
+        // }
+        // console.log(res)
+
+        // 输出 1*2*3*4...20  字符串
+        var res = '';
+        var sum = 1;
+        for (var i = 1; i <= 20; i++) {
+            if(i == 1) {
+                res = 1
+              
+            }
+            res += ('*' + i)
+            sum *=i
+            console.log(res+ '=' + sum)
+            
+        }
+
+        // console.log(res)
+
+        // 求 1+2+3+4+...20
+        // var res = 0;
+        // for (var i = 1; i <= 20; i++) {
+        //     console.log(i)
+        //     console.log(res + '+' + i)
+        //     res += i;
+        // }
+        // console.log(res)
+    </script>
+</body>
+
+</html>

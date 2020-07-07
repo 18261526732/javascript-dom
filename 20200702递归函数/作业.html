@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一、封装一个颠倒字符串的函数，要求随机传如一个字符串，将这个字符串颠倒
+        // 方法一
+        // function revers(arr){
+        //     if(arguments.length === 0){
+        //         throw new Error('params is not defined')
+        //     }
+        //     if(arguments.length > 1){
+        //         throw new Error('params.length can is not gt 1')
+        //     }
+        //     if(!Array.isArray(arr)){
+        //         throw new Error('params must is Array')
+        //     }
+        //     var res = [];
+        //     for(var i = 0; i < arr.length; i++){
+        //         res[i] = arr[arr.length-1-i]
+        //     }
+        //     return res;
+        // };
+        // var arr = [1,2,3,4,5,6];
+        // var res = revers(arr);
+        // console.log(res);
+// 方法二
+        // function revers(params){
+        //     var res = '';
+        //     for(var i = params.length-1; i >= 0; i--){
+        //         res += params[i]
+        //     }
+        //     return res;
+        // }
+        // var newString = 'qdwfegewgwgw';
+        // var res = revers(newString)
+        // console.log(res)
+// 方法三
+        //  var str = 'qdwfegewgwgw';
+        // function revers(str){
+        //     if(arguments.length > 1){
+        //         throw new Error('param.length can not gt 1')
+        //     }
+        //     // if(typeof(params !== 'string')){
+
+        //     // }
+        //     var str = ''
+        //     return str.split('').revers().join('')
+        // }
+       
+        // console.log(str);
+
+
+
+        // 二、输出0到50的随机数
+
+        // function random(min , max){
+        //     if(typeof min === 'number' && typeof max === 'number'){
+        //         var res = Math.round(Math.random()*(max-min))+min
+        //     return res;
+        //     }else{
+        //         throw new Error('params is not number')
+        //     };
+
+        // };
+        // var res = random(1 , 50);
+        // console.log(res);
+
+
+        // 三、封装一个数组去重的方法
+
+        // function repeat(arr) {
+        //     if (arguments.length === 0) {
+        //         throw new Error('params is not defined')
+        //     }
+        //     if (arguments.length > 1) {
+        //         throw new Error('params.length can is not gt 1')
+        //     }
+        //     if (!Array.isArray(arr)) {
+        //         throw new Error('params must is Array')
+        //     }
+        //     var flag = false;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         for (var j = 0; j < res.length; j++) {
+        //             if (arr[i] == res[j]) {
+        //                 flag = true;
+        //                 break
+        //             } else {
+        //                 flag = false;
+        //             }
+        //         };
+        //         if (!flag) {
+        //             res.push(arr[i])
+        //         };
+        //     };
+
+
+        //     return res;
+        // };
+        // var res = [];
+        // var arr = [2, 3, 4, 3, 3, 3, 'a', 'a', 'a'];
+        // var res = repeat(arr);
+        // console.log(res);
+
+        // 四、封装一个方法，要求输出字符串中每个字符出现的次数和出现次数最多的一个字符串
+        //1、 用对象统计 将不重复字符变为对象中key value 统计出现此时
+        ///2、将对象中的value值进行比较 并求最大值 同时返回对应的key value值
+
+        var str = 'aiufhaoifbhhjjjjubvuuvbvjjj';
+        var obj = {};
+        var flag = false;//true存在    false不存在
+        for (var i = 0; i < str.length; i++){
+
+            var count = 1;
+            for(var x in obj){
+                if(str[i] === x){
+                    flag = true
+                    ++count;
+                    break
+                }else(
+                    flag = false
+                )
+            }
+            if(!false){
+                obj[str[i]] = count;
+            }
+        } 
+        console.log(obj)
+
+
+
+        // 五、封装一个冒泡排序的方法
+        // function sort(arr) {
+        //     if (arguments.length === 0) {
+        //         throw new Error('params is not defined')
+        //     }
+        //     if (arguments.length > 1) {
+        //         throw new Error('params.length can is not gt 1')
+        //     }
+        //     if (!Array.isArray(arr)) {
+        //         throw new Error('params must is Array')
+        //     }
+        //     for (var i = 0; i < arr.length; i++) {
+        //         for (var j = i + 1; j < arr.length; j++) {
+        //             if (arr[i] > arr[j]) {
+
+        //                 var tmp = arr[i];
+        //                 arr[i] = arr[j];
+        //                 arr[j] = tmp;
+        //             };
+        //         };
+        //     };
+        //     return arr;
+        // };
+        // var arr = [1, 23, 3, 44, 56, 9];
+        // var res = sort(arr);
+        // console.log(res);
+
+
+
+
+        // 六、
+        // var a = 10
+        // var obj = {
+        //     a: 20,
+        //     say: function () {
+        //         console.log(this.a)
+        //     }
+        // }
+        // obj.say()//输出20
+
+
+        // 七、
+        // var a = 10
+        // var obj = {
+        //     a: 20,
+        //     say: () => {
+        //         console.log(this.a)
+        //     }
+        // }
+        // obj.say()//输出10
+
+
+        // // 八、
+        var length = 10;
+        function fn() {
+            console.log(this.length);
+        }
+
+        var obj = {
+            length: 5,
+            method: function (fn) {
+                fn();
+                // Fn 函数是由 类数组 arguments 触发的 所以 Fn中this 指向method 中的argumengts
+                arguments[0]();// 
+            },
+        };
+
+        obj.method(fn, 1);//10 2
+
+
+        var arr = [function (){
+            console.log(this)
+        },12,'12133']
+        arr[0]()
+
+
+        // 九、
+        // var name = "The Window";
+        // var object = {
+
+        //     name: "My Object",
+
+        //     getNameFunc: function () {
+        //         return function () {
+        //             return this.name;
+        //         };
+
+        //     }
+
+        // };
+        // alert(object.getNameFunc()());//the Window
+
+
+
+        // // 十、
+        // 腾讯面试笔试题  考察 闭包 作用域 内存 垃圾回收机制
+        // function fun(n, o) {
+        //             //n=0 
+        //             //n = 1,o =0
+        //     console.log(o);
+        //     return {
+        //         fun: function (m) {
+        //             return fun(m, n);
+        //             //        m=1  n=0
+        //         }
+        //     };
+        // }
+        // 垃圾回收机制 将没有用的变量都销毁
+        // var a = fun(0); //undefined
+        // a.fun(1);//0  有返回值 但是没有变量引用
+        // a.fun(2);//0
+        // a.fun(3);//0
+        // var b = fun(0).fun(1).fun(2).fun(3);//undefined 0 1 2
+        // var c = fun(0).fun(1); //undefined 0
+        // c.fun(2);//1
+        // c.fun(3);//1
+        //问:三行a,b,c的输出分别是什么？ 为什么
+    </script>
+</body>
+
+</html>

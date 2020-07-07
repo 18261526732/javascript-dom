@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        面试题：
+        什么是闭包：函数return函数 把内部的函数保存在外部 让外部可以访问
+        闭包的优点是什么？ 外部函数可以访问内部函数的变量 
+                        变量不会被污染  
+        闭包的缺点是什么？ 变量不释放 导致内存泄漏
+        
+
+        foo 执行一次 形成一个闭包 闭包与闭包之间互不干扰
+        原因：因为foo每次执行会初始化AO对象 多个AO对象 多个地址  AO 与AO 之间彼此独立的 互不干扰
+        所以 每一次执行操作的是自己的各自的AO 不是同一个AO 
+        */
+
+        function foo(){
+            var num = 0;
+          return function(){
+                num++
+                console.log('这就是闭包',num)
+            } 
+        }
+        var bar = foo()  //怎么实现外部访问内部的  存函数指针22222222222222
+        
+        console.log(bar)
+        // 函数中有函数 并且return返回的是一个函数 里面的函数访问函数体中的变量
+
+        
+    </script>
+</body>
+</html>

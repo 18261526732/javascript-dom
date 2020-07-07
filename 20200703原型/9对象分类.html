@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 对象分类（js 是面向对象的角度）
+
+
+        // 函数对象
+        function foo(){}// 函数对象
+        var bar = new Function();// 函数对象
+        var foo1 = function(){};// 函数对象
+
+        // // 普通对象:原型对象 构造对象
+        // ------> 日期对象 数组对象 字符串对象
+        var obj = new Object();// 普通对象
+        var f = new foo();// 普通对象
+        
+        // var obj = new Object();
+        // var f = new foo();
+        // 问题：构造函数的foo的原型对象与new实例对象 f 的原型的关系是什么
+        // 1：f 是foo 创建的
+        // foo的原型对象与f的原型对象是同一个       （原型角度）
+        // foo.prototype 存的指针： 与f.__proto__的指针相同     （内存角度）
+        // 两个对象中，两个不同的属性  存的相同的指针
+
+        console.log(foo.prototype === f.__proto__);//true
+
+        // 区分方式
+        // 函数对象有prototype--->函数对象的原型对象
+        // 普通对象没有prototype 只有__proto__--->普通对象的原型对象
+
+        // 函数对象的原型对象 是个普通对象
+        // 特殊Function 的原型对象 为函数对象，而这个函数对象没有prototype
+        console.log(Function.prototype)//ƒ () { [native code] }
+        console.log(typeof Function.prototype)//function
+        console.log(typeof Function)//function
+        console.log(Function.prototype.prototype)//undefined
+
+        // Function 和function的区别？（面试题）
+        // 1、function的构造函数是Function
+        // 2、function的原型对象为普通对象
+        // 3、Function的原型对象为函数对象 并且这个函数对象没有prototype
+
+
+        // function f1() { };
+        // var f2 = function () { };
+        // var f3 = new Function('str', 'console.log(str)');
+        // var o3 = new f1();
+        // var o1 = {};
+        // var o2 = new Object();
+        // console.log(typeof Object); //function
+        // console.log(typeof Function); //function
+        // console.log(typeof o1); //object 
+        // console.log(typeof o2); //object
+        // console.log(typeof o3); //object
+        // console.log(typeof f1); //function
+        // console.log(typeof f2); //function
+        // console.log(typeof f3); //function
+
+    </script>
+</body>
+
+</html>

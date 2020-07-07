@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        页面输出的作用：
+                - 做调试bug  程序或者推理业务 在哪里出现问题 就在哪里输入
+                -
+     -->
+     <script>
+         // 字符串 变量
+         //传入任意的js数据类型 变量
+         //查看的是 某一个变量在执行到这一行的时候：赋值的是什么内容？------>查看日志以下的程序的 到底使用的什么值
+         console.log(12);
+         console.log(true);
+         console.log(['name',12,'youxiu']);
+         console.log({name: 'aa' , age: 12});
+
+        // 注意 打印日志 不会阻却下面的代码执行；同步代码（快）
+         console.log(console);
+         console.dir("你好啊");
+
+         //alert 是弹框 可以阻断下面代码的执行 类似于打断点
+        alert('alert调试')
+        console.log('--------------')
+
+     </script>
+</body>
+</html>

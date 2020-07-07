@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Animal(){
+            this.name = name;
+            this.age = age;
+        }
+        var wyq = new Animal ('王艳芹', 18)
+
+        function person(name,age){
+            return{
+                name:name,
+                age:age,
+                getname:function(){
+
+                }
+            }
+        }
+
+        Animal.prototype.getname = function(){
+            return this.name
+        }
+        
+        var yufei = person('余菲',23);
+        console.log(yufei)
+        
+    </script>
+</body>
+</html>

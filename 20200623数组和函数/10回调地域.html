@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 晚上打断点测试一下  看看执行顺序
+
+        function foo (callBack1){
+          console.log('foo') 
+          callBack1(function(){
+              console.log('callBack2 的回调函数')
+          }) 
+        }
+        foo(function (callBack2){
+            console.log('foo的回调函数')
+            callBack2()
+        })
+
+        //1、 回调函数 本来就是异步程序
+        // 2、回调地域 最难的就是不知道方法体中callBack 执行到底是哪一个程序（函数）
+        // 3、console.log 打印出来看看执行的到底是哪个函数
+
+        // xxxx() 一定是函数执行 内置api'  自定义函数 回调函数。。。。
+        // 关于api： api的作用是什么：  参数有什么意义  返回值是什么
+        // 自定义函数 ： 这个函数到底做了什么  返回值是什么 形参和实参是什么
+        // 回调函数 ： 在众多function中 到底执行了哪一个
+
+        // 异步 ：不是按照从上往下执行的程序 都是异步
+        // 1、放在上面的程序后执行  因为【慢】
+        // 2、凡是执行慢的程序都是异步的方式存在
+
+        // 常见的异步处理函数：回调函数
+        // 
+
+        // function foo(callBack1){
+        //     console.log('先执行我')
+        //     callBack1(function(){
+        //         console.log('222222')
+        //     })
+        // }
+        // foo(function (callBack2){
+        //     console.log('这是传给callBack1的实参，也是callBack的回调函数')
+        //     callBack2()
+            
+        // })
+
+        // 回调函数小练
+    function fun(f1){
+        console.log('fun');
+        f1(function (f3){
+            console.log('f1');
+            f3();
+        });
+    }
+    fun(function (f2){
+        console.log('f2');
+        f2(function (){
+            console.log('f3');
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 去重思维
+      // 1：声明 空数组；保证空数组中没有重付内容
+      // 2： 用重复数组与鑫数组比较。将不重复的数据添加到 空数组中
+      
+      // 1个数组的去重
+      // var arr = [1,2,2,3,4,4];
+      // var flag = false;
+      // var res = []
+      // for(var i = 0 ,len= arr.length;i<len;i++){
+      //     for(var j  = 0;j<res.length;j++){
+      //         if(arr[i]==res[j]){
+      //             flag = true
+      //             break
+      //         }else{
+      //             flag = false
+      //         }
+      //     }
+
+      //     if(!flag){
+      //         res.push(arr[i])
+      //     }
+      // }
+
+      // console.log(res)
+
+      function arrDuplicate(arr) {
+        // 代码规范：错误优先原则
+        // 先验证长度 再验证类型
+        if (arguments.length > 1) {
+          throw new Error("arguement.length can not gt 1");
+        }
+        if (arguments.length == 0) {
+          throw new Error("param can not undefined");
+        }
+        if (!Array.isArray(arr)) {
+          // 抛出错误有阻止下面代码执行的作用
+          throw new Error(" params must is Array");
+        }
+        // 只有正确时候下面才会执行
+        var res = [];
+        var flag = false;
+        for (var i = 0, len = arr.length; i < len; i++) {
+          for (var j = 0; j < res.length; j++) {
+            if (arr[i] == res[j]) {
+              flag = true;
+              break;
+            } else {
+              flag = false;
+            }
+          }
+
+          if (!flag) {
+            res.push(arr[i]);
+          }
+        }
+
+        return res;
+      }
+        var newArr = arrDuplicate([1, 2, 2, 2, 2, 2, 2, 3, 4, 5, "d"]);
+        console.log(newArr);
+      var res = arrDuplicate();
+    </script>
+  </body>
+</html>

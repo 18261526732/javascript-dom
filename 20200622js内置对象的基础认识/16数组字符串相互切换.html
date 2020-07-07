@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['王艳芹','余菲','方雪子']
+
+        // 将数组转化为字符串
+        // 不会修改原值
+        var res =  arr.toString();
+        console.log(arr)
+        console.log(res)
+
+        // 将数组变为字符串 join
+        // arr.join() 将数组变为字符串
+        // ---> 参数 为 替换'',' 字符的内容
+        // 参数只能替换为一维数组中的字符 被嵌套的二维数组不能替换
+        var arr3 = ['q','213','rwqr',3,[1,2]]
+        var res3 = arr3.join('  '); //用空格替换逗号
+        console.log(res3,'--------')
+
+
+
+        // 将res字符串 变为数组 
+        // split () 将字符串进行切割 并且返回一个数组
+        var newArr = res.split(',');
+        newArr[1] = 'zhanan'
+        console.log(newArr)
+
+        // 参数为被切割的字符 被切割之后 变成数组
+        var str1 = 'fue+rwt+sfer+2334+r+232+sf+rreww'
+        var res1 = str1.split("+")
+        console.log(str1)
+        console.log(res1)
+    </script>
+</body>
+</html>

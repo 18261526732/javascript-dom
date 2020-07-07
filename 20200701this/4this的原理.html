@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 原理一：与函数调用结合
+    //当一个函数在执行的时候：会创建一个上下文对象。[[scope]]  上下文对象在声明的时候就会产生
+    // 上下文对象中，函数是被谁调用的 在哪里调用的 参数是什么等信息
+    // this 就是记录的一个属性 在函数被调用时产生
+
+    // 函数调用有几种方式？
+    // new
+    // 对象调用
+    // 事件调用
+    // call , apply 或 bind
+
+    // 原理二：结合作用域的看this、
+    // 问题： 为什么return返回值为 对象 、 数组、函数 this就不指向new实例化的对象
+    // 函数本身 为什么不能作为构造函数：new 类似失效
+    // 原理：函数在执行的时候回创建局部作用域：this是受作用域的影响
+
+    // 有点说不通？？？要注意
+    // new创建一个对象，就是将构造函数的作用域赋给了新对象;所以this 指向了这个对象，
+    // return {}, [],function 之后；改变了作用域，作用域赋值给了 {} function []
+        
+    //  所以this指向{} [] function
+
+
+    var name = 'liuliu'
+    function foo(){
+        this.name = 'aaa'
+        console.log(this,'-------------')//this 为函数 非对象
+        return {
+            name: '王宇航'
+        }
+    }
+    var obj =new foo();
+    // console.log(obj)
+
+    </script>
+</body>
+</html>

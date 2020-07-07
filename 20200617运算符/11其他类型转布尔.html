@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        属于直接转化  不是运算 属于数据类型转化
+        其他类型转布尔：除了false 其他都是true
+        false： 空字符 0 null undefined NaN
+
+        显示转化 只有数据类型的转换
+        隐式转换 会发生运算
+     -->
+
+     <SCript>
+         console.log(Boolean(''))
+         console.log(Boolean(0))
+         console.log(Boolean(null))
+         console.log(Boolean(undefined))
+         console.log(Boolean(NaN))
+         console.log(Boolean('123'))
+         console.log(Boolean(123))
+         console.log(Boolean(1))
+         console.log(Boolean([]+123)) //true 注意这是数据类型转换 不是运算
+         console.log(Boolean({}))
+     </SCript>
+</body>
+</html>

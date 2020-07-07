@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  var arr = [1,2,3,4,5,'dd']
+    //  var str = arr.toString()
+    //  console.log(str)
+    //  var res = arr.reverse()
+    //  console.log(res)
+    //  var replace = str.replace('dd','ff')
+    //  console.log(replace)
+
+
+    // 数组去重 
+    // var arr = [12,23,3,3,3,23,4,5,5,'aa','aa'];
+    // var flag = false;
+    // var res = [];
+
+    // for(var i = 0; i < arr.length; i++){
+    //    for(var j = 0; j < res.length; j++){
+    //      if(arr[i] == res[j]){
+    //        flag = true
+    //      }else{
+    //        flag = false
+    //      }
+    //    }
+    //    if(!flag){
+    //      res.push(arr[i])
+    //    }
+    // }
+    // console.log(res)
+
+
+    // 统计每一个字符出现的次数
+    // var arr = [12,23,3,3,3,23,4,5,5,'aa','aa'];
+
+
+    //       var arr = [1,2,3,4,'dd']
+    // // 1 将arr 数组变为字符串
+    // var str = arr.toString()
+    // //2：将字符串颠倒
+    // var str = arr.replace().toString()  
+    // //3：将字符串中 dd 替换为 FF
+    // var arr[4] = 'FF'  //var str = suibian.replace(/['dd']/,'ff')
+    // console.log(str)
+
+    // var arr = [1,1,1,1,2,2,2,3,3,3,3]
+    // for(var i = 0;i<arr.length;i++){
+    //    for(var j = i+1;j<arr.length;j++){
+    //      if(arr[i] == arr[j]){
+    //        arr.splice(j,1)
+    //        j--
+    //      }
+    //    }
+    //  }
+    //  console.log(arr)
+
+
+
+    // var str = 'abcdefghijklmnopqrstuvwxyz1234567890';
+    // //随机输出6为的字符 
+    // var res = ''
+    // for(var i = 0 ;i<6;i++){
+    //     var num = Math.round(Math.random()*str.length);
+    //     res += str[num]
+
+    // }
+    // console.log(res)
+
+    // var str = 'djfqweurqwe432423edfssdfsd';
+    // 统计 d 字符再 str 中出现了多少次
+    // var str = 'djfqweurqwe432423edfssdfsd';
+    // // 统计每一个字符出现的次数
+    // var mpn = 0
+    // var arr = str.split('');
+    // // console.log(str)
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 马虎
+    //   if (arr[i] == 'd') {   //要全等
+    //     mpn++
+    //   }
+    // }
+    // console.log(mpn)
+
+    // var arr = [2, 3, 4, 23, 56, 100];
+    // function max(arr){   //函数的方法名没有写啊  没有错误优先原则
+    //    for(var i = 0;i<arr.length;i++){
+    //    for(var j = i+1;j<arr.length;j++){
+    //          if(arr[i]>arr[j]){
+    //            var tmp = arr[i];
+    //            arr[i]  =arr[j];
+    //            arr[j] = tmp;
+    //                }
+    //            }
+    //        }
+    //     return arr[length-1];
+    //     }
+    //     max(arr)
+    //     console.log(arr)
+
+    // var arr = [1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3]
+    // for (var i = 0; i < arr.length; i++) {
+    //   for (var j = i + 1; j < arr.length; j++) {
+    //     if (arr[i] === arr[j]) {
+    //       arr.splice(j, 1)
+    //       j--
+    //     }
+    //   }
+    // }
+    // console.log(arr)
+
+    // var str = 'abcdefghijklmnopqrstuvwxyz1234567890';
+    // //随机输出6位的字符 
+    // var res = '';
+    // for (var i = 0; i < 6; i++) {
+    //   var num = Math.ceil(Math.random() * str.length);
+    //   res += str[num]
+    // }
+    // console.log(res)
+
+    // var str = 'dfjqwoerjowqejr'
+    // // 统计每一个字符出现的次数
+    // var res = {};
+    // var flag = false;
+    // for (var i = 0; i < arr.length; i++) {
+    //   for (var j = 0; j < res.length; j++) {
+    //     if (arr[i] == res[j]) {
+    //       flag = true;
+    //       break
+    //     } else {
+    //       flag = false;
+
+    //     }
+    //   }
+    //   if (!flag) {
+    //     res[arr[i]] = 0;
+    //   }
+    // }
+    // for (var x in res) {
+    //   for (var z = 0; z < str.length; z++) {
+    //     if (x === str[z]) {
+    //       ++res[x]
+    //     }
+    //   }
+    // }
+    // console.log(x)
+
+    // // 统计每一个字符出现的次数
+    // //将字符串转变成对象
+    // var str = 'dfjqwoerjowqejr'
+    // var obj = {};
+    // var flag = false;
+    // for (var i = 0; i < str.length; i++){
+    //     for (var j in obj){
+    //         if(obj[j] === str[i]){
+    //             flag = true;
+    //             break
+    //         }else{
+    //             flag = false
+    //         }
+
+    //         }
+    //         if(!flag){
+    //             obj[str[i]] = 0;
+    //     }
+    // }
+    // // 统计对象下key值出现的次数
+    // for(var y in obj){
+    //     for (var i = 0; i < str.length; i++){
+    //         if(y === str[i]){
+    //             ++obj[y]
+    //         }
+    //     }
+    // }
+    // console.log(obj)
+
+
+    // var arr = [2, 3, 4, 23, 56, 100];
+    // function max(arr){
+    // 	if(arguments.length == 0){
+    // 		throw new Error('params null')
+    // 	}
+    // 	if(arguments.length > 1){
+    // 		throw new Error('params.lemgth cannot gt 1')
+    // 	}
+    // 	if(!Array.isArray(arr)){
+    // 		throw new Error('params must be Array')
+    // 	}
+    // 	var res = 0;
+    // 	arr.forEach(function(item){
+    // 		if(res < item){
+    // 			res = item
+    // 		}
+    // 	})
+    // 	console.log(res)
+    // }
+    // max(arr)
+
+
+    // var res = [];
+    // function repeat(arr) {
+    //   if (arguments.length == 0) {
+    //     throw new Error("arguement.length can not zoro");
+    //   }
+    //   if (arguments.length > 1) {
+    //     throw new Error("aruements.lengt can not gt 1");
+    //   }
+    //   if (!Array.from(arr)) {
+    //     throw new Error("type param must be array");
+    //   }
+    //   var flag = false;
+    //   for (var i = 0; i < arr.length; i++) {
+    //     for (var j = 0; j < res.length; j++) {
+    //       if (arr[i] == res[j]) {
+    //         flag = true;
+    //         break
+    //       } else {
+    //         flag = false;
+    //       }
+    //     }
+    //     if (!flag) {
+    //       res.push(arr[i])
+    //     }
+    //   }
+    //   return res
+    // }
+    // var arr = [1, 23, 23, 23, 3, 4, 5]
+    // repeat(arr)
+    // console.log(res)
+
+
+    var x = function(){};
+    var res = !(x.constructor == Function) && x instanceof Object
+    console.log(res)
+
+    var arr1 = [123];
+    var arr2 = [123];
+
+    var res = JSON.stringify(arr1)===JSON.stringify(arr2);
+    console.log(res)
+
+  </script>
+</body>
+
+</html>

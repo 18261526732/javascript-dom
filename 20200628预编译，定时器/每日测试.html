@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fun(num){
+        //     console.log(num);
+        //     var num = 5;
+        //     console.log(num);+
+        // }
+
+        // function fun(ger){
+        //     console.log(ger);//输出5  因为实参把5赋值给了形参
+        //     function ger(){
+        //         alert("hello world");//不会弹出  因为函数没有被调用
+        //     }
+        // }
+        // fun(5)
+
+        // function fun(ger){
+        //     console.log(ger);//输出函数表达式
+        //     var ger = function(){//函数表达式
+        //         alert("hello world");
+        //     }
+        // }
+        // fun(5)
+
+        // function a(b){
+        //     console.log(b);// 输出的是b的函数体 也就是f b(){console.log()}
+        //     function b(){
+        //         console.log(b);//输出的是undefined
+        //     }
+        //     b();
+        // }
+        // a(1)
+
+        // function a(b){
+        //     console.log(b);//输出1 因为是实参赋值给b的值为1
+        //     var b = function(){//函数表达式
+        //         console.log(b);//输出函数表达式 声明提升 已经声明 并且赋值 所以直接是函数表达式
+        //     }
+        //     b();
+        // }
+        // a(1)
+
+        // function test(a,b){
+        //     console.log(a);//function(){} 函数的提前声明
+        //     console.log(b);//undefined 变量声明提前 但是没有赋值
+        //     var b = 234;
+        //     console.log(b);//234 执行顺序b已经被声明且赋值
+        //     a = 123;
+        //     console.log(a);//123
+        //     function a(){};
+        //     var a ;
+        //     b = 234;
+        //     var b = function(){};
+        //     console.log(a);//123
+        //     console.log(b);//输出函数表达式  b已经声明且赋值函数表达式
+        // }
+        // test(1);
+
+        // console.log(test);//输出函数体 函数整体的声明提前 function test(test){...}
+        // function test(test){
+        //     console.log(test);//输出function test(){} 在自身作用域中查找变量的声明 然后又因为function test的函数的声明提前
+        //     var test = 234;
+        //     console.log(test);//输出234
+        //     function test(){}
+        // }
+        // test(1);
+        // var test = 123;
+
+        // function test(){
+        //     console.log(b);//undefined 因为if是全局变量 var b 提前声明 但是没有赋值
+        //     if(a){
+        //         var b = 100;
+        //     }
+        //     c = 234;
+        //     console.log(c);//234  在window下的全局作用域下的全局变量
+        // }
+        // var a;
+        // test();
+        // a = 10;
+        // test();//undefined
+        // console.log(c);//234
+
+        var arr = [1, 2, 3, 21, 12, 3, 4]  // 求最大值 
+        var arr1 = [3, 4, 5, 5, 2, 3, 5, 4]   // 求最小值
+        //求最大值
+        // var max = 0;
+        // for (var i = 0; i < arr.length; i++){
+        //     if( max < arr[i]){
+        //         max = arr[i]
+        //     }
+        // }
+        // console.log(max)
+
+        // var min = arr1[0];
+        // for (var i = 0; i < arr1.length; i++){
+        //     if( min > arr1[i]){
+        //         min = arr1[i]
+        //     }
+        // }
+        // console.log(min)
+
+        var res = [];
+        for (var i = 0; i < arr.length; i++){
+            res[i] = arr[arr.length-[i+1]]
+            
+        }
+        console.log(res)
+        
+
+        // arr.sort(function(item,index){
+        //     return item - index
+        // })
+        
+        // console.log(arr[arr.length-1])
+
+        // // 求最小值
+        // arr1.sort(function(item,index){
+        //     return item - index
+        // })
+        
+        // console.log(arr1[0])
+        
+
+
+        // // 将 arr1 数组去重 
+        // var res1 = [];
+        // for(var i = 0; i < arr1.length; i++){
+        //     if(res1.indexOf(arr1[i])==-1){
+        //         res1.push(arr1[i])
+        //     }
+        // }
+        // console.log(res1)
+
+    </script>
+</body>
+
+</html>

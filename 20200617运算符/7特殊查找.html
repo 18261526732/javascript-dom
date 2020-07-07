@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var 声明提前
+        console.log(_name)
+        var _name = 'wangyanqin';
+        var age = '18';
+        var dec = '凡是过往皆为序章';
+        
+        console.log(_name,age,dec)
+
+        //默认var 声明的变量 提升到你找不到的地方
+        //声明提升 赋值提升
+
+        //已声明 未赋值 结果为undefined;
+        //没有声明的变量 被使用了 会报错  xxx is not defined
+
+        // 总结变量的使用规则
+        // 第一：整个文件中查找看有没有var 变量；
+        //  -------> 没有   xxx is not defined   --->阻却下面代码执行
+        // --------> 有 
+        // 第二：使用时候；往上找；看是否有赋值？ 
+        //   ----> 没有赋值   undefined（已声明未赋值就会undefined)
+        // ------> 有赋值   看距离他最近的一次赋值
+    </script>
+</body>
+</html>

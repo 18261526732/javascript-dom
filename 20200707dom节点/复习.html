@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .hidden {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>显示</button>
+    <script>
+        flag = true; //true 为显示 false 为隐藏
+        var box = document.getElementsByClassName('box')[0];
+        var btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function(){
+            flag = !flag
+            flag ? (box.className = 'box') : (box.className = 'box hidden')
+        }
+    </script>
+</body>
+</html>

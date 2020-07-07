@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 100px;
+            height: 100px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" style="border-radius: 50%;"></div>
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0];
+        // var res = wrap.style.borderRadius;//获取行内样式 要小驼峰命名
+        // console.log(res)//50%
+        
+        // 可以获取所有的样式
+        // getComputerStyle(元素对象，null) 获取元素样式
+        // 参一 ：元素对象类名
+        // 参二：是否获取伪元素 ， null表示不获取
+        // 注意： getComputedStyle(wrap,null)仅支持谷歌获取 不支持低版本IE 8 以下不支持
+        // var res = getComputedStyle(wrap,null)
+        // console.log(res.width)//100px
+        // console.log(res.borderRadius)//50%
+
+        // wrap.currentStyle IE 9 以下的版本不支持
+        // var resIe = wrap.wrap.currentStyle;
+        // console.log(resIe,width)
+
+
+        // 解决了获取样式兼容性的问题 支持谷歌浏览器 以及IE 9 以上的版本
+        function getStyle(el){
+            if(el.currentStyle){
+                return el.currentStyle
+            }else{
+                return getComputedStyle(el,null)
+            }
+        }
+        // console.log(getStyle(wrap))
+        console.log(getStyle(wrap).width) //100px
+
+    </script>
+</body>
+</html>

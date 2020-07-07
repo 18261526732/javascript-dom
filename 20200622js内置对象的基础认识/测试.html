@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var num = 0;
+        // for (var i = 0; i < 10; i++) {
+        //     if (i % 3 == 0) {
+        //         break;
+        //     }
+        //     num++;
+        // }
+        // console.log(num);
+
+        // var arr = ['美国人', '日本人']
+        // var res = arr.replace(/['人']/g,'狗')
+        // var res1 = res.join('+');
+        // console.log(res1)
+        // // 输出结果为  '美国狗+日本狗'
+        // var res = arr.replace(/['人']/g,'狗')
+        // var res = arr.replace(/['人']/g,'狗')
+        // console.log(res)
+
+        // var arr = ['美国人', '日本人']
+        //     // 输出结果为  '美国狗+日本狗'
+        //     var res1 = arr.join('+');
+        //     var res2 = res1.replace(/['人']/g, '狗')
+        //     console.log(res2)
+        
+        var str = '今日按日子真的好呀'
+        // 获取每一个字符
+        // for (var i = 0;i<str.length;i++){
+        //     console.log(str[i])
+        // }
+        // 2: 返回 ['今天','按日','子真','的好','呀']
+
+        // 方法一
+            // var arr = []
+            // for(var  i = 0;i<str.length;i+=2){
+            // arr.push(str.substr(i,2))   
+            // } console.log(arr)
+
+        // 方法二
+
+        // 3: 将 '今' 替换为 '昨'
+            // var res = str.length[0];
+            //     res = '昨'
+            // console.log(res)
+
+            // 方式二
+            // var res1 = str.replace('今','昨')
+            // console.log(res1)
+
+
+            // 判断下面数组中书否有'aa'这个元素  如果有弹出信息 并统计输出选在几个
+            // var arr = ['aa','cc','dd','aa','aa']
+            // var res = '';
+            // var count = 0;
+            //  if( arr.indexOf('aa') != -1){
+            //         alert('含有aa这个字符')
+            //     }
+            // for (var i = 0;i < arr.length ;i ++ ){ 
+               
+            //     if(arr[i]=='aa'){
+            //         count++
+            //     }
+            // }
+            // console.log(count)
+
+        // 写一个 九九乘法表格
+       
+        // var str = '';
+        // for (var i = 1;i <= 9; i++){
+        //     for (var b= 1;b<=i;b++){
+        //         str += i + '*' + b + '=' + i*b+'  ';
+                
+        //     }
+        //     console.log(str);
+        //     var str = '  '
+        // }
+        // var res = ''
+        // for (var i =1;i<10;i++){
+        //     for (var j=i;j<10;j++){
+        //         res = `${i} x ${j} = ${i*j}`
+                
+        //     }
+        //     console.log(res)
+        //     //  var res =' '       
+        // }   
+        
+                    
+    //     遍历下面的数据 输出对应的 商品列表结构；图片自己找
+    //     var date=[
+    //     {id:1001,icon:"img/1.png",name:"餐饮0",num:1,price:10},
+    //     {id:1002,icon:"img/2.png",name:"餐饮1",num:1,price:20},
+    //     {id:1003,icon:"img/3.png",name:"餐饮2",num:1,price:30},
+    //     {id:1004,icon:"img/4.png",name:"餐饮3",num:1,price:40},
+    //     {id:1005,icon:"img/5.png",name:"餐饮4",num:1,price:50},
+    //     {id:1006,icon:"img/6.png",name:"餐饮5",num:1,price:60},
+    //     {id:1007,icon:"img/7.png",name:"餐饮6",num:1,price:70},
+    //     {id:1008,icon:"img/8.png",name:"餐饮7",num:1,price:80},
+    //     {id:1009,icon:"img/9.png",name:"餐饮8",num:1,price:90},
+    //     {id:1010,icon:"img/10.png",name:"餐饮9",num:1,price:100}
+    // ];
+
+    // for (i in date){
+    //     console.log(date[i])
+    //     for (var y in date[i]){
+    //         console.log(date[i][y])
+    //     }
+    // }
+            
+
+    var product = [{
+    name:'今日推荐',
+    imgSrc:'http://www/2.png',
+    dec:'好喜欢'
+}, {
+    name:'昨日推荐',
+    imgSrc:'http://www/2.png',
+    dec:'好喜欢'
+}, {
+    name:'后天日推荐',
+    imgSrc:'http://www/2.png',
+    dec:'好喜欢'
+}]
+
+var res = ''
+for (x in product){
+    res = ''
+    
+    for( y in product[x]){
+    res += (y+ ":"+product[x][y]+",")
+    }
+    console.log(res)
+}
+
+
+    //     var  res = ''
+    // for (var i = 0;i<product.length;i++){
+    //     console.log(product[i])
+    //     for (var y in product[i]){
+    //         console.log(res.product[i][y])
+    //     }
+            
+    // }
+    
+            
+    </script>
+</body>
+
+</html>

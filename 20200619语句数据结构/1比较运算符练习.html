@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+         比较：大小 相等   具体数字 
+         值判断大小运算符 并且 不同类型数据 才转化
+         相同类型     不转化
+         NaN 自己都不等于自己 
+         null 值等于 undefined null 
+
+         === !== 操作数不转化
+    -->
+    <script>
+        console.log(undefined>1) // false
+        console.log(undefined==undefined)  // true 相同类型数据
+        console.log(NaN === NaN)
+        console.log(1>'') 
+        console.log([]=='') 
+        console.log([]==='')  // false 没转化 类型不等
+        // true 到底转化的是 number 还是字符串 ---> number 再比较 
+        console.log(true>='true')   // 1>NaN
+        console.log(null==null)
+
+        // null 值等于 undefined null 
+        console.log('' == null)  // false 特殊的
+        console.log([] == null)  // false 特殊的
+        console.log('ddd' == null)  // false 特殊的
+        console.log({} == null)  // false 特殊的
+        console.log(12 == null)  // false 特殊的
+        console.log(undefined == null)  // 以为内意义相同
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wraper">
+        <div id="box"></div>
+    </div>
+    <script>
+        // 选择器的作用 选中html标签 然后进行js修改
+        //用什么存选择器选中结果 ------->用变量
+
+        //getElementsByTagName  通过html字符串 获取html元素 返回【类数组】 (Elements)
+        // 一个页面中有多个相同的元素 所以在getElementsByTagName 的返回值为一个【类数组】
+        var divs = document.getElementsByTagName('div')
+        console.log(divs)//返回了一个类数组 HTMLCollection 索引为0的值是最外层的div  索引值为1 的值为内层的div
+        console.log(divs[1]) //返回索引值为1 的值  也就是里面一层的div
+
+        // document.getElementsByClassName 通过获取class为'wraper'的元素 返回【类数组】
+        // class 类名可以给多个元素同时命名相同的值 所以在getElementsByClassName 的返回值为一个【类数组】
+        var wrap = document.getElementsByClassName('wraper')
+        wrap = wrap[0]
+        console.log(wrap)//返回了类数组中索引为0 的值 也就是div标签
+
+        // document.getElementById 通过获取ID为'box'的html元素
+        // id  具有唯一性 所以会直接返回 一个具备id类名的元素
+        var box = document.getElementById('box');
+        console.log(box)//<div id="box"></div>
+
+        // document.querySelector 返回元素节点
+        var box1 = document.querySelector('#box');
+        console.log(box1)////<div id="box"></div>
+
+        // document.querySelectorAll  返回元素节点集合
+        var wraps = document.querySelectorAll('.wraper');
+        console.log(wraps) //返回元素节点的集合  也是数组
+
+
+        // 总结：dom 的选择器 document.xxxx() 参数为字符串，返回值要么是元素对象 要么是元素对象集合
+        // 注意 返回集合 用到 节点集合取值
+    </script>
+</body>
+</html>

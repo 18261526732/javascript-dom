@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ++ 给自己加1
+        var x = 1;
+            // 先给y赋值 x=1 再让x自增1
+            y = x++;
+        console.log('y',y,'x',x);// 1 2
+
+        var a = 1;
+        // 先自增1 再赋值给b a的运算结果为2
+            b = ++a;
+        console.log('a',a,'b',b);//2 2
+
+        var l = 1;
+            q = 2;
+            w = '';
+        var res = (++l + l++)-3*(q++ -++q)-q++;
+        // var res = (2 + 2)-3*(q++ -++q)-q++;
+        // var res = (2 + 2)-3*(2 - 4)-4;
+        // var res = 4-3*(-2)-4;
+        // var res = 4+6-4
+        // var res = 6
+
+        // 顺序很重要  不能提前进行赋值运算 按照顺序 一步一步计算 计算之后的结果赋值给后面的数字
+        
+        var l = 1;
+        var q = 2;
+        var w = '';
+        var res = (++l + l++) - 3* (q++ - ++q) - q++;
+         res = (++1 + l++) - 3* (q++ - ++q) - q++;
+         res = (2 + 2++) - 3* (q++ - ++q) - q++;
+         res = (4)-3* (q++ - ++q) - q++;   // 2++===> l = 3 
+         res = 4-3* (2++ - ++q) - q++;   // 2++===> l = 3 
+         res = 4-3* (2 - ++3) - q++;   // q =3
+         res = 4-3* (2 - 4)- q++;   // q =4
+         res = 4-3* (2 - 4) - 4++;   // q =4
+         res = 4-3* (-2)-4++;   // q =4
+         res = 4-(-6)-4++;   // q =4
+         res = 10 -4++;   // q =4
+         res = 6 // q=5
+        console.log(res)
+
+    </script>
+</body>
+</html>

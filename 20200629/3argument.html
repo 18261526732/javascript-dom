@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo(){
+            // arguments 伪数组 接受实参  伪数组不能使用api
+            console.log(arguments)
+            // 如何讲一个伪数组变成一个真数组？
+
+            // 方法一
+            // var parmes = [];
+            // for(var i = 0; i < arguments.length; i++){
+            //     parmes.push(arguments[i])
+            // } 
+            // console.log(parmes)
+
+            // 方法二
+            // var parmes = [...arguments]//es6 中内容 展开运算符
+            // console.log(parmes)
+
+            // 方法三
+            // Array.from() 将类数组变为0真数组 实现深拷贝
+            var parmes = Array.from(arguments);
+            // console.log(parmes)
+             
+             parmes.push('新内容')
+             console.log(parmes)
+             console.log(arguments)
+
+        }
+        foo(1,2,3,4,5)
+    </script>
+</body>
+</html>

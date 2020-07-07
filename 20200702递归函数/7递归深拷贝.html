@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        name: "周超",
+        list: [
+          {
+            name: "余非",
+          },
+          {
+            name: "顾坤",
+            say: "这怎么能少了我呢",
+          },
+        ],
+      };
+
+      // deepCopy  实现的是数组或者对象的深层拷贝
+      // 递归深拷贝
+      // 1：需要考虑；每次拷贝的数；是数组或者对象；不确定改符合处理呢
+
+      function deepCopy(params) {
+        if (arguments.length == 0) {
+          throw new Error("arguement.length can not zoro");
+        }
+        if (arguments.length > 1) {
+          throw new Error("aruements.lengt can not gt 1");
+        }
+        if (!(param instanceof Object)) {
+          throw new Error("type param must be array or object");
+        }
+        // 如果是数组
+        if (Array.isArray(params)) {
+          var res = [];
+          for (var i = 0; i < params.length; i++) {
+            if (params[i] instanceof Object) {
+              // 将深层拷贝的结果的 添加到 res 中
+              res.push(deepCopy(params[i]));
+            } else {
+              res.push(params[i]);
+            }
+          }
+          return res;
+        }
+        // 如果是对象 进行 对象的拷贝
+        if (params.constructor === Object) {
+          var res = {}; //  1 声明空对象
+          for (var x in params) {
+            // 遍历被拷贝独享
+            // 如果你是数组或者对象；需要再次拷贝
+            if (params[x] instanceof Object) {
+              // 将深层拷贝的结添加到 reszhogn
+              res[x] = deepCopy(params[x]);
+            } else {
+              // params[x] 为基本类型数据 直接添加大res中
+              res[x] = params[x];
+            }
+          }
+          return res
+        }
+      }
+      var res = deepCopy(obj);
+      obj.list.push("aaaa");
+      res.list[0].dec = "撒旦发顺丰";
+      console.log(res);
+      console.log(obj);
+      // 未来的面试题；考察 大家；js 基础逻辑问题；
+      // 赋值 逻辑 递归  if  for 方法封装 综合掌握度
+      // 如何写余数据类型有关的判断表达式 
+    </script>
+  </body>
+</html>

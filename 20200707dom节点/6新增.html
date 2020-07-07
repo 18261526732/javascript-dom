@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+            background-color: thistle;
+        }
+        * {
+            margin:  0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        input {
+            outline: none;
+            border: 1px solid #ccc;
+            height: 35px;
+            padding-left: 15px;
+            width: 300px;
+            color: #ccc;
+        }
+        .head {
+            width: 300px;
+            margin:10px auto;
+            display: flex;
+            justify-content: center;
+        }
+        #add {
+            width: 55px;
+            height: 35px;
+            appearance: none;
+            border: none;
+            outline: none;
+            background:#ccc;
+        }
+        main {
+            width: 500px;
+            background-color: #fff;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .content {
+            padding: 20px 45px 20px 45px
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <div class="head">
+            <input id="ipt" type="text" placeholder="新增内容" >
+            <div><button id="add">新增</button></div>
+        </div>
+        <div class="content">
+            <p>这是一个段落</p>
+        </div>
+    </main>
+    <script>
+        // var ipt = document.querySelector('#ipt');
+        // var btn = document.querySelector('#add');
+        // var content = document.querySelectorAll('.content')[0];
+        // btn.onclick = function (){
+        //     // 获取输入内容
+        //     var val =  ipt.value;
+        //     console.log(val)
+        //     // 新建一个p标签
+        //     var pnode = document.createElement('p');
+        //     // 把获取的内容赋值给 新建的p标签
+        //     pnode.innerHTML = val;
+        //     // 把新建的标签添加到content里面
+        //     // 语法： 父元素.appendChild(子元素)
+        //     content.appendChild(pnode);
+        //     // 清空input输入框
+        //     ipt.value = "";
+
+        // }
+
+        var ipt = document.querySelector('#ipt');
+        var btn = document.querySelector('#add');
+        var content = document.querySelectorAll('.content')[0];
+        btn.onclick = function (){
+            // 获取输入内容
+            var val =  ipt.value;
+            console.log(val)
+            // 新建一个p标签
+            var pnode = document.createElement('p');
+            // 把获取的内容赋值给 新建的p标签
+            pnode.innerHTML = val;
+            // 把新建的标签添加到content里面
+            // 语法： 父元素.appendChild(子元素)
+            content.appendChild(pnode);
+            // 清空input输入框
+            ipt.value = "";
+
+        }
+
+    </script>
+</body>
+</html>

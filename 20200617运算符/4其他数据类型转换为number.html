@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!-- 数据类型之间是可以相互转换的 显示 隐式
+   boolean 转 number
+   
+   显示转换 Number() parseInt() parseFloat()
+   api 接受什么参数  api的作用是什么 -->
+
+   <script>
+       var x = 0.1;
+       var y = 0.2;
+
+       //注意：不要测试某个浮点数的运算结果  因为不精准
+       console.log (x + y == 0.3);//输出false
+       //不论是十进制 还是其他进制 最后展示的都是十进制
+        console.log (0xf);//15
+
+
+        //Number() 作用：将其他的数据类型转化为数值型 并返回转化结果
+        //参数为JS数据  不传参 默认返回0
+
+        var res = Number('gukun')//返回NaN
+        console.log(res)//返回NaN
+        console.log(Number(''))//返回0
+        console.log(Number(false))//返回0
+        console.log(Number(true))//返回1
+        console.log(Number(1.156))//返回1.156
+        console.log(Number(null))//返回0
+        console.log(Number(undefined) , '========')//返回NaN
+
+        //NaN 其他数据转换成数值型 没有匹配数组 那么就是NaN
+        /**    - 任何数和NaN 算数运算 都是NaN
+         *     - 任何数和他相比较都是false
+         *     - NaN 不等于NaN
+         *注意：数值转换NaN 后的运算情况
+
+
+
+         字符串转number 
+            - ''------> 0   非空非数字类型 准换成NaN
+            - 纯数组字符 -----> 数字
+            - 进制字符 -------> 最终输出十进制
+
+        bool转number
+            - true ---->1
+            - false----->0
+        
+        undefined------>NaN
+        null----------->0
+
+        数组转数组
+            - 空数组 ------>0
+            - 非空数组------>NaN
+
+        对象转数组-------->NaN
+
+        **/
+
+        console.log(1+NaN)//NaN
+   </script>
+</body>
+</html>

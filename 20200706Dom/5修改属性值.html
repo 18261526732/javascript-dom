@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" style="width: 100px;" id="aa"></div>
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0];
+        // 获取html的属性 前提是html具有这个属性 或者是自定义属性
+        console.log(wrap.style.width)//获取属性
+        // 修改html的属性值
+        // 通过js设置css样式  设置的行内样式
+        wrap.style.width = '200px'; //修改了类名为wrap 的元素的高和宽
+        wrap.style.height = '200px';
+        wrap.style.backgroundColor = 'red'//这个不执行 因为style不具备这个属性
+
+        console.log(wrap.id)//aa 直接通过元素类名然后ID获取
+        console.log(wrap.style)//输出了 元素的 style 以类似目录的方式
+        console.log(wrap.className)//wrap
+    </script>
+</body>
+</html>

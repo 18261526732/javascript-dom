@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [12,23,3,4,555,555,555]
+        // map () 回调函数中运算的新数组 可以实现【深拷贝】// 深拷贝 一个改变  另外一个不改变
+        var res = arr.map(function(item,index){
+            console.log(item,index)
+
+            return item*2
+        })
+        res.push('aaa')
+        // console.log(res)
+        console.log(arr)
+
+        
+        // 浅拷贝 一个改变 另外一个同样改变
+        // var arr1 = [1,2,3]
+        // var res1 = arr1;
+        // res1.push('res 的新增数据')
+        // console.log(arr1)
+        // console.log(res1)
+
+    </script>
+</body>
+</html>

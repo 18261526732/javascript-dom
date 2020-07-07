@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.xxx.xxx() xxx()
+        // 2.new xxx()
+        // 3.xxx.call()  xxx.apply()  xxx.bind()()
+        // 4.事件触发
+
+        // function foo(){
+        //     console.log('aaa')
+        // };
+        // foo();
+
+
+
+        // var foo =  new function(){
+        //     console.log('bbb')
+        // };
+
+        // foo.call(window);
+
+
+
+        // (function(){
+        //     console.log('立即执行函数')
+        // })();
+
+        // ((function(){
+        //     console.log('立即执行函数')
+        // })())
+        
+        
+        // 多个括号的表达式  从左往右运算 等一个运算完才会运算下一个
+        new (function(){
+            console.log('new')
+            return function(){
+                console.log('返回值')
+                return function(){
+                    console.log('第三层')
+                }
+            }
+        })()()()
+
+    </script>
+</body>
+</html>

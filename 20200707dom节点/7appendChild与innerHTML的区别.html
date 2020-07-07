@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <span>这是一个内容</span>
+            <span>还发后覅我饿覅讲故事</span>
+        </div>
+        <div class="box1">
+            <span>也是内容</span>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var box1 = document.querySelector('.box1');
+        // 重新赋值
+        box.innerHTML = '你好啊';
+        // 直接插入一段文本内容 累加方式  把文本当成一个节点插入
+        var text = document.createTextNode('这是一个新的文本内容');
+        box1.appendChild(text);
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(null.__proto__)//报错  Cannot read property '__proto__' of null
+        // 我们把这个有__proto__串起来的直到Object.prototype.__proto__为null的链叫做原型链。
+        console.log(Object.prototype.__proto__)//null
+
+        // 原型对象的作用：继承 
+        // 面向对象的开发 （抽象）
+
+        // 继承例子 
+         var person = function(name){
+             this.name = name;
+         }
+
+        //  函数原型对象下的api 原则上:必须指向【构造对象】
+         person.prototype.getName = function(){
+             return this.name;
+         }
+         person.prototype.getAge = function(age){
+             this.age = age;
+         }
+
+         var obj = {
+             name:'this'
+         }
+         var wyq = new person('王艳芹');
+         var res = wyq.getName();
+         wyq.getAge(18)//传参数赋值给age
+         console.log(wyq)//person {name: "王艳芹"}  赋值添加了属性 age：18
+         console.log(res)//王艳芹
+         console.log(wyq.__proto__ === person.prototype)//true
+         console.log(person.prototype.__proto__=== Object.prototype)//true
+         console.log(wyq.__proto__.__proto__=== Object.prototype)//true
+         console.log(Object.prototype.__proto__)//null
+         console.log(wyq.__proto__.__proto__.__proto__ === Object.prototype.__proto__) //true
+
+        //  继承 被继承的属性 都可以被继承者所直接使用
+        console.log(wyq.valueOf)//ƒ valueOf() { [native code] }  wyq对象直接访问Object.prototype
+    
+        //  谈谈你对js原型的认识
+        // 原型链 以及继承：
+    
+    </script>
+</body>
+</html>

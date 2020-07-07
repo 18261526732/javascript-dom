@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr  =[1,2,2,2,3,3,4,3,44]
+        // 从头用第一项与后面的每一项进行比较
+        for(var i = 0; i < arr.length; i++){
+            console.log(arr[i])
+            // 和arr后面的一项相比
+            for(var j = i+1; j < arr.length; j++)
+            if(arr[i]===arr[j]){
+                arr.splice(j,1)
+                j--// 删除元素后 for循环回退一步 如果没有j--   会漏掉一些数据 比如重复了两次以上的数据
+            }
+        }
+        console.log(arr)
+    </script>
+</body>
+</html>

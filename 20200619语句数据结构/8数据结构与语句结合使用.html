@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr = ['1','2','3','4','frgwe']
+        // console.log(arr[0])
+        // console.log(arr[1])
+        // console.log(arr[2])
+        // for (var i = 0;i<arr.length;i++){
+        //     console.log(arr[i])
+        // }
+
+        // var studengts = [
+        //     {naem:'袁国顺',age:18},
+        //     {naem:'小明',age:10},
+        //     {naem:'小李子',age:17},
+        //     {naem:'小栗子',age:21},
+        //     {naem:'板凳',age:27},
+        //     {naem:'刘先生',age:27},
+        // ]
+        // console.log('姓名：',studengts[0].naem,'年龄：',studengts[0].age)
+        // for(var i = 0;i<studengts.length;i++){
+        //     console.log('姓名：',studengts[i].naem,'年龄：',studengts[i].age)
+        // }
+
+
+        var teacher = [
+        {name:'范真',dec:'淑女',age:18},
+        {name:'闫岐',dec:'大淑女',age:17},
+        {name:'金溪镇',dec:'大淑女',age:37},
+        {name:'管涛',dec:'大淑女',age:47},
+        ]
+        
+        for(var i = 0;i<teacher.length;i++){
+             if(teacher[i].age<18){
+            console.log("<h1>姓名： "+ teacher[i].name + " 描述： "+ teacher[i].dec + ",</h1>")
+        }else {
+            document.write("<h1>姓名： "+ teacher[i].name + " 描述： "+ teacher[i].dec + ",</h1>")
+        }
+            // console.log('姓名：',teacher[i].name,'描述：',teacher[i].dec)
+            // document.write('姓名：',teacher[i].name ,'描述：',teacher[i].dec)
+            // document.write(`<h1>姓名：${teacher[i].name},描述：${teacher[i].dec}</h1>`)
+            // document.write("<h1>姓名： "+ teacher[i].name + " 描述： "+ teacher[i].dec + ",</h1>")
+        }
+       
+    </script>
+</body>
+</html>
