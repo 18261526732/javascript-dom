@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 第一种简单的绑定事件的方式 -->
+    <h1 onclick="this.innerHTML ='谢谢'">你有事儿啊？？？</h1>
+
+    <!-- 第二种 绑定事件函数 -->
+    <h2 onclick="yao(this)">你有病啊</h2>
+
+    <!-- 第三种 dom绑定-->
+    <h3 class="changeText">天气不错</h3>
+
+    <!-- 第四种 .addEventListener -->
+    <h2 class="txt">凡是过往</h2>
+
+    <script>
+        // 事件：实现的是用户和浏览器的交互行为
+        // 事件分类：键盘 鼠标 滚动 浏览器 窗口 表单
+        // 交互：一问一答 一行为、一响应  用户做出行为 浏览器反应对应的效果
+        // 核心知识点（面试）：事件对象 事件机制 事件流  事件句柄 监听事件
+
+        // window.onload 表示当页面刚刚启动的时候 做初始化操作 通过js进行页面初始化渲染
+        // window.onload = function(){
+        //     // 事件处理函数
+        //     alert('你好')
+        // }
+
+        // 第二种对应
+        function yao(ele){
+            ele.innerHTML = '你有药啊'
+        }
+
+        // 第三种对应
+        var txt = document.querySelector('.changeText');
+        // onclick 点击事件
+        txt.onclick = function(){
+            // 事件处理函数：浏览器对用户行为作出的响应
+            this.innerHTML = '是的，天气不错'
+        }
+
+        // 第四种对应 IE不支持
+        var text = document.querySelector('.txt');
+        text.addEventListener('click',function(){
+            this.innerHTML = '皆是序章'
+        })
+    </script>
+</body>
+</html>

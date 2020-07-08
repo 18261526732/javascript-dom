@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" data-wyq = 'wangyanqin'>我是内容</div>
+    <script>
+
+        // nodeType:  返回dom树上的节点类型
+        // 1 ----> 元素节点
+        // 3 ----> 文本节点
+        // 2 ----> 属性节点
+        // 9 ----> document文档节点
+
+        // getAttribute 返回某个属性的值
+        // data-xxx  为自定义属性
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var div = document.querySelector('.wrap');
+        console.log(wrap.nodeType);//1  Element_Node 值  元素节点
+        console.log(div.nodeType);//1
+
+        var text = document.createTextNode('我是文本节点')
+        console.log(text.nodeType)//3  文本节点
+
+        console.log(div.getAttribute('data-wyq'))//wangyanqqin
+    </script>
+</body>
+</html>

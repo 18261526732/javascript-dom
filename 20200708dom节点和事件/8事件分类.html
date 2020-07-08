@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .active#wrap {
+            width: 100px;
+            height: 100px;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <div id="wrap">
+        <div class="box"></div>
+    </div>
+    <script>
+        // 监听鼠标在整个页面中移动的范围
+        // document.onmousemove = function () {
+        //     console.log('鼠标在浏览器移动了')
+        // }
+
+        //  监听某个元素鼠标移动的情况
+        // wrap.onmousemove = function(){
+        //     console.log('监听鼠标在wrap上的移动')
+        // }
+        // 问题 document 和 wrap 两个页面同时监听了
+
+
+        var wrap = document.getElementById('wrap');
+        // // 鼠标移动到元素上
+        // wrap.onmouseenter = function (){
+        //     console.log('鼠标移动到wrap上')
+        //     wrap.className = 'active'
+        // }
+
+        // // 鼠标离开袁术
+        // wrap.onmouseleave = function (){
+        //     console.log('鼠标离开wrap')
+        //     wrap.className = ''
+        // }
+
+        // // 鼠标在元素上按下
+        // wrap.onmousedown = function (){
+        //     console.log('你已经按下鼠标')
+        // }
+
+        // // 双击鼠标事件
+        // document.ondblclick = function (){
+        //     console.log('双击鼠标')
+        // }
+
+        
+
+        // 键盘事件  
+        document.onkeydown = function(){
+            console.log('按下了键盘')
+        }
+
+        // 释放键盘
+        document.onkeyup = function(){
+            console.log('释放键盘')
+        }
+
+        var ipt = document.querySelector('input')
+        ipt.onkeyup = function(){
+            console.log('释放键盘')
+        }
+    </script>
+</body>
+</html>

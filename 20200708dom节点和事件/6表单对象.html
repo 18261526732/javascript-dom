@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <input type="text">
+        <input type="checkbox">
+        <button>提交</button>
+
+
+        <select name="" id="">
+            <option value="china">中国</option>
+            <option value="Amican">美国</option>
+            <option value="bangzi" selected>韩国</option>
+        </select>
+    </form>
+    <script>
+        
+        
+
+
+
+        var formObject = document.querySelector('form');
+        //  // 获取form表单中的元素集合
+        console.log(formObject)
+        console.log(formObject[0])
+        console.dir(formObject[1].checked)
+        console.dir(formObject[2])
+
+        // 设置或者修改 checkedbox的值
+
+        formObject[1].checked = true;
+        formObject[0].focus()
+
+
+        for(var i = 0; i < formObject.length; i++){
+            // 获取form表单中的元素集合
+            console.log(formObject[i])
+        }
+
+        // 问题 select  option 用户选中的哪一个
+        var select = formObject[formObject.length-1];
+        console.log(select)
+        console.dir(select)
+        for (var x = 0; x < select.length; x++){
+            if(select[x].selected){
+                console.log(select[x].value)
+            }
+        }
+
+        // select.size = '100'改变select的高度
+        // 封装方法
+        // 作用 返回select option的内容
+        var select = document.querySelector('form')
+        function selectval(select){
+            // if(arguments.length === 0){
+            //     throw new Error('Failed to execute "getAttribute" on "Element": 1 argument required, but only 0 present.')
+            // }
+            // if(select.nodetype!==1){
+            //     throw new Error('Failed to execute "getAttribute" on "Element": 1 argument required, but only 0 present.')
+            // }
+            // 错误优先原则
+            var res = null
+            for (var x = 0; x < select.length; x++){
+            if(select[x].selected){
+                res = {
+                    el:select[x],
+                    value:select[x].value
+                };
+            }
+            
+         }
+         return res
+        }
+       console.log(selectval(select) );
+    </script>
+</body>
+</html>

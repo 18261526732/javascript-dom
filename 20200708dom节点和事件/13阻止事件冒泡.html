@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="child"></div>
+        </div>
+    </div>
+
+    <script>
+        //冒泡和铺获
+
+        var child = document.querySelector('.child');
+        var box = document.querySelector('.box');
+        var wrap = document.querySelector('.wrap');
+
+        child.addEventListener('click',function(e){
+            // e.stopPropagation(); 阻止事件冒泡 会导致祖籍中的事件处理函数不会被触发
+            e.stopPropagation();
+            console.log('child')
+            console.log(e.target)
+            e.target.style.background = 'pink'
+        },false)
+        box.addEventListener('click',function(e){
+            e.stopPropagation();
+            console.log(e.target)
+            e.target.style.background = 'aqua'
+        },false)
+        wrap.addEventListener('click',function(e){
+            e.stopPropagation();
+            console.log('wrap')
+            console.log(e.target)
+            e.target.style.background = 'blueviolet'
+        },false)
+    </script>
+</body>
+</html>
