@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="用户名"><input type="text"></label>
+        <label for="密码"><input type="text"></label>
+        <button>提交</button>
+    </form>
+
+    <div>
+        <input type="text" id='btn'>
+        <h1></h1>
+    </div>
+
+    <div><input type="checkbox" id="check"></div>
+    <script>
+        // form input
+        // 提交 change
+        // var form = document.querySelector('form');
+        // form.onsubmit = function (e){
+        //     // 阻止浏览器的默认行为
+        //     // e.preventDefault()
+        //     e.preventDefault()
+        //     console.log(e,'已经提交')
+
+        //     // 获取表单的提交内容 进行提交处理
+        //     console.log(form[0].value)
+        // }
+
+        // var btn = document.querySelector('button');
+        // btn.onclick = function (e){
+        //     // 阻止默认行为
+        //     e.preventDefault()
+        //     console.log('------')
+        // }
+
+        // 输入框的onchange事件  是在失去焦点后触发
+        // var ipt = document.querySelector("#btn");
+        // ipt.onchange = function(e){
+        //     console.log(e.target.value)
+        // }
+
+        // var h1 = document.querySelector('h1');
+        // var ipt = document.querySelector("#btn");
+        // oninput 事件 可以实时监听input输入框的状态
+        // ipt.oninput = function (){
+        //     console.log(ipt.value)
+        //     h1.innerHTML = ipt.value
+        // }
+
+        // change 事件：当input 发生改变触发
+        // var check = document.querySelector('#check');
+        // check.onchange = function(e){
+        //     console.log('check 发生改变了')
+        //     console.log(e.target.value)
+        // }
+        
+        // 焦点事件
+        var ipt = document.querySelector("#btn");
+        ipt.onfocus = function(){
+            console.log('获取焦点了')
+        }
+        ipt.onblur = function(){
+            console.log('失去焦点了')
+        }
+    </script>
+</body>
+</html>

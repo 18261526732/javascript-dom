@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <script>
+        
+        var btn = document.getElementById('btn');
+        // 一、事件对象的兼容性解决
+        // btn.onclick = function (e){
+        //     //解决兼容性问题
+        //     var event = e || window.event;
+        //     console.log(e)
+        //     console.log(event)
+        // }
+
+
+        //二、阻止浏览器默认行为
+            // function preventDefault(e){
+            //     var e = e || window.event;
+            //     if(event.preventDefault){
+            //         event.returnValue();
+            //     }else{
+            //         event.returnValue = false
+            //     }
+            // }
+
+            // 三、阻止事件冒泡
+            // function stopPropagation(e){
+            //     var event = e || window.event;
+            //     if(ievent.stopPropagation){
+            //         event.stopPropagation();
+            //     }else{
+            //         event.stopPropagation = true
+            //     }
+
+            // }
+
+            // js日和解决兼容性问题
+
+            // 四、事件监听的封装
+
+            function eventListener(el,event,callback,type){
+                if(el.addEventListener){
+                    el.addEventListener(event,callback,type)
+                }else{//IE8以下
+                    el.attachEvent(event,callback);
+                }
+            }
+            eventListener(btn,'click',function(e){
+                // 事件执行函数
+                console.log('事件执行了')
+            },false)
+
+
+             // 删除事件句柄的兼容性处理
+        function removeEvent(el,eventName,eventFun){
+            if(arguments.length !== 1){
+                throw new Error('fail "Element":type is error')
+            }
+            if(typeof eventName !== 'string'){
+                throw new Error ('fail "eventname":type must be string')
+            }
+            if(typeof eventFun !== 'function'){
+                throw new Error ('fail "eventFun":type must be Funcftion')
+            }
+            if(arguments.length === 0){
+                return null
+            }
+            if(el.removeEventListener){
+                el.removeEventListener(eventName,eventFun)
+            }else{
+                el.detachEvent(eventName,eventFun)
+            }
+        }
+    </script>
+</body>
+</html>

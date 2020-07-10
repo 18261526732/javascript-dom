@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font_hy571i13iym/iconfont.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        margin-top: 20px;
+    }
+
+    .iconfont {
+        font-size: 50px;
+        margin-left: 10px;
+    }
+
+    .color {
+        color: yellow;
+    }
+
+    p {
+        font-size: 25px;
+        font-weight: 900;
+        position: absolute;
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+
+<body>
+    <h1>开始评价</h1>
+    <div class="wrap">
+        <span class="iconfont icon-icon-"></span>
+        <span class="iconfont icon-icon-"></span>
+        <span class="iconfont icon-icon-"></span>
+        <span class="iconfont icon-icon-"></span>
+        <span class="iconfont icon-icon-"></span>
+    </div>
+    <p class="show">非常差</p>
+    <p>差</p>
+    <p>一般</p>
+    <p>良好</p>
+    <p>优秀</p>
+
+    <script>
+        var star = document.querySelectorAll('span');
+        var p = document.querySelectorAll('p');
+
+        var index = 0;
+        for (var i = 0; i < star.length; i++) {
+            (function () {
+                var index = i;
+                p[index].className = '';
+                star[i].addEventListener('click', function () {
+                    for (var j = 0; j < i; j++) {
+                        // star[j].className = 'iconfont icon-icon-'
+                        star[j].className = 'iconfont icon-icon-';
+                        p[j].className = '';
+                        if(j <= index){
+                            star[j].className = 'iconfont icon-icon- color';
+                        }
+                    }
+                    p[index].className = 'show';
+                });
+            })();
+        };
+
+    </script>
+</body>
+
+</html>
