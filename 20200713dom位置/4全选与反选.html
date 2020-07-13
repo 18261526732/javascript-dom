@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <input type="checkbox" class="all"> <span class="allMsg">全选</span>
+            <input type="checkbox" class="reverse">反选
+        </div>
+        <div><input type="checkbox" class="check"><span>我是内容001</span></div>
+        <div><input type="checkbox" class="check"><span>我是内容002</span></div>
+        <div><input type="checkbox" class="check"><span>我是内容003</span></div>
+        <div><input type="checkbox" class="check"><span>我是内容004</span></div>
+        <div><input type="checkbox" class="check"><span>我是内容005</span></div>
+    </form>
+    <script>
+        var ipts = document.querySelectorAll('.check');
+        var all = document.querySelector('.all');
+        var allMsg = document.querySelector('.allMsg');
+        var reverse = document.querySelector('.reverse')
+        console.log(ipts);
+        ipts = Array.from(ipts);
+        ipts.forEach(function (item) {
+            // item 表示当前的选中的元素
+            item.addEventListener('change', function () {
+                // 获取选中的元素的下一个元素
+                var span = item.nextElementSibling;
+                if (item.checked) {//选中
+                    span.style.color = 'blue';
+                } else {//未选中
+                    span.style.color = '';
+                }
+                var alls = ipts.every(function (item) {
+                    return item.checked === true
+                });
+                alls ? all.checked = true : all.checked = false
+            });
+
+        });
+        all.addEventListener('change', function (item) {
+            // 需求：如果选中全选 全部被选中 ：文字也变化
+            reverse.checked = false;
+            if (all.checked) {
+                ipts.forEach(function (item) {
+                    item.checked = true;
+                    item.nextElementSibling.style.color = 'blue';
+                });
+            } else {
+                ipts.forEach(function (item) {
+                    item.checked = false;
+                    item.nextElementSibling.style.color = '';
+                });
+            }
+        });
+        var flag = false;
+        reverse.addEventListener('change', function () {
+            ipts.forEach(function (item) {
+                item.checked = !item.checked
+                if (item.checked) {
+                    item.nextElementSibling.style.color = 'blue'
+                } else {
+                    item.nextElementSibling.style.color = ''
+                }
+
+            });
+            var reverses = ipts.every(function(item){
+                return item.checked === true
+            })
+            reverses ? all.checked = true : all.checked = false
+        });
+    </script>
+</body>
+
+</html>

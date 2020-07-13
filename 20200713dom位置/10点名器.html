@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 50px auto;
+            width: 200px;
+            height: 70px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 70px;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .box1 {
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">开始点名</div>
+    <div class="box1">
+        <button id="start">开始</button>
+        <button id="stop">暂停</button>
+    </div>
+    <script>
+        var names = [
+            '光头强', '蜡笔小新', '大熊', '静香', '哆啦A梦', '熊大', '熊二', '吉吉国王', '图图', '英俊', '牛爷爷', '小美', '王子', '迪迦奥特曼'
+        ];
+        var box = document.querySelector('.box');
+        var start = document.querySelector('#start');
+        var stop = document.querySelector('#stop');
+        var timer;
+        var flag = true;//初始值  
+        // 解决方法为节流
+        start.onclick = function () {
+            if (flag) {
+                //多次点击 保证timer只赋值一次
+                timer = setInterval(function () {
+                    var random = Math.floor(Math.random() * (names.length));
+                    box.innerHTML = names[random]
+                }, 20);
+            }
+            flag = false
+            console.log(timer)
+        };
+        stop.onclick = function () {
+            clearInterval(timer)
+            flag = true;
+        };
+        // bug  当点击多次的时候 无法清除timer
+
+        // 防抖  节流 关于网络的性能优化
+        // 防抖 ： 多次点击按钮以最后一次为主------> timer 触底。。。
+        // 节流 ： 多次点击按钮以第一次一次为主---->购物车计数器
+    </script>
+</body>
+
+</html>

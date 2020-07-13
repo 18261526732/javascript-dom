@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            height: 100px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <p>我是内容001</p>
+        <p>我是内容002</p>
+        <p>我是内容003</p>
+        <p>我是内容004</p>
+        <p>我是内容005</p>
+        <p>我是内容006</p>
+        <p>我是内容007</p>
+        <p>我是内容008</p>
+        <p>我是内容009</p>
+        <p>我是内容010</p>
+    </div>
+    <script>
+        // 触底：
+        // 是指： 页面高度 = 视图窗口高度 + 滚动条滚动高度
+
+        window.onscroll = function () {
+            var wrap = document.querySelector('.wrap')
+            // 视图窗口的高度
+            var H = innerHeight;
+            console.log(H)
+            // 滚动条距离窗口顶部的高度
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop)
+            // 页面高度 固定的
+            var pageH = document.body.offsetHeight;
+            console.log(pageH)
+            var data = [
+                '前端', 'JAVA', '大数据', 'python', '数据分析', '产品经理'
+            ];
+            // 触底加载更多的操作
+            // >= 和margin padding 有关
+            if (H + scrollTop >= pageH) {
+                console.log('到底啦');
+                // bug:慢 0.5s内可以重复多次触底---> 解决方式  防抖
+                setTimeout(function () {
+                    for (var i = 0; i < data.length; i++) {
+                        var p = document.createElement('p');
+                        p.innerHTML = data[i];
+                        wrap.appendChild(p);
+                    };
+                }, 500);
+            };
+
+        };
+    </script>
+</body>
+
+</html>

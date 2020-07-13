@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // window.onresize 当视图窗口改变的时候 执行函数
+        // 可用于css的响应式 就是和视图窗口有关的 通过判断视图窗口的宽度 然后改变样式
+        window.onresize = function(){
+            console.log('视图窗口改变了')
+            console.log(innerWidth)//获取浏览器的视图窗口的宽度
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: darkred;
+            position: relative;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        // box.onclick = function(){
+        //     console.log('点击了吧')
+        //     // 通过获取鼠标移动距离 将距离赋值给元素的left top的属性 实现元素的移动效果
+        //    document.onmousemove = function(e){
+        //         console.log(e.clientX)
+        //         // 减去元素宽度的一半 使鼠标焦点在元素的中心
+        //         box.style.left = e.clientX-50+'px';
+        //         box.style.top = e.clientY-50+'px';
+
+        //         // 坑一 默认body 8px 导致鼠标不在元素上
+        //         // 坑二 在左上角
+        //         // 需求 让鼠标焦点在中间
+        //     };
+        // };
+
+
+        // 需求 在哪里点击  就开始在那里拖动
+        box.onclick = function(){
+            console.log('点击了吧')
+            var x = event.offsetX;
+            var y = event.offsetY;
+            // 通过获取鼠标移动距离 将距离赋值给元素的left top的属性 实现元素的移动效果
+           document.onmousemove = function(e){
+                console.log(e.clientX)
+                // 减去元素宽度的一半 使鼠标焦点在元素的中心
+                box.style.left = e.clientX-x+'px';
+                box.style.top = e.clientY-y+'px';
+
+                // 坑一 默认body 8px 导致鼠标不在元素上
+                // 坑二 在左上角
+                // 需求 让鼠标焦点在中间
+            };
+        };
+
+        
+    </script>
+</body>
+</html>
