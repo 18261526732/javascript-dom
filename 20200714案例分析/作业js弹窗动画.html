@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            width: 70px;
+            height: 30px;
+            margin-top: 30px;
+        }
+        #view {
+            display: none;
+            opacity: 1;
+        }
+        #dinaji {
+            margin-left: 50%;
+        }
+        .bgc {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: rosybrown;
+            display: block !important;
+            opacity: 1;
+            position: relative;
+        }
+        .confirm {
+            position: absolute;
+            top: 50px;
+            left: 30px;
+        }
+        .cancel {
+            position: absolute;
+            top: 50px;
+            right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="dianji" class="btn">点击</button>
+    <div id="view">
+            <button class="confirm btn">确认</button>
+            <button class="cancel btn">取消</button>
+    </div>
+    <script src="./animat.js"></script>
+    <script>
+        var btn = document.querySelector('#dianji');
+        var view = document.querySelector('#view');
+        var confirms = document.querySelector('.confirm');
+        var cancel = document.querySelector('.cancel');
+        btn.onclick = function(){
+            view.className = 'bgc';
+        }
+        confirms.onclick = function(){
+            // ani(confirms,'opacity',0,0.5,function(){})
+            view.className = ' ';
+        }
+        cancel.onclick = function(){
+            // ani(cancel,'opacity',0,0.5,function(){})
+            view.className = ' ';
+        };
+
+        // view.onclick = function(){
+        //     ani(view,'opcity',0,1,function(){})
+        // }
+        
+    </script>
+</body>
+
+</html>

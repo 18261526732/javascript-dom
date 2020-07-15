@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <select name="province" id="province">
+        <option value=""></option>
+    </select>
+    <select name="city" id="city">
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    <select name="area" id="area">
+        <option value=""></option>
+        <option value=""></option>
+    </select> -->
+    <script src="./area.js"></script>
+    <script>
+        var province = document.createElement('select');
+        var city = document.createElement('select')
+
+        // 遍历对象
+        for(var i in area){
+            // 遍历创建option
+            var opt = new Option(i,i);
+            // 将创建好的option 添加到 省份select中
+            province.appendChild(opt);
+        }
+        console.log(province);
+        document.body.appendChild(province);
+
+        // 获取省份对应的value值
+        var proVal = province.value;
+        
+        // 根据数据结构获取对应的想要取得的数据
+        var cityObj = area[proVal][0];
+        console.log(cityObj);
+        for(var x in cityObj){
+            var citys = new Option(x,x);
+            // console.log(citys)
+            city.appendChild(citys);
+        }
+        document.body.appendChild(city);
+       
+        // 通过onchange事件 获取对应的value值
+        province.onchange = function(){
+            var val = province.value;
+            console.log(val);
+            var cityAll = area[val][0];
+            city.innerHTML = '';
+            // value值 对应的市区也要改变  改变之前进行清空 然后重新存入新的数据
+            for(var y in cityAll){
+                var cityAlls = new Option(y,y);
+                city.appendChild(cityAlls);
+                console.log(cityAlls)
+                document.body.appendChild(city)
+            };
+            
+        };
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./animat.js"></script>
+    <script>
+        var box = document.querySelector('.box');
+        // 宽度从100变200之 后 高度从100变300
+        // setInterval(function(){
+        //     ani(box,'width',200,0.5)
+        // },16.7)
+        // setInterval(function(){
+        //     ani(box,'height',300,0.5)
+        // },517)
+
+        ani(box,'width',200,0.5,function(){
+            alert('第一个动画执行完毕')
+            ani(box,'height',300,1,function(){
+                alert('第二个动画执行完毕了')
+            })
+        })
+        // callback表示执行完毕后做其他事情
+        function ani(el, str, end, time,callback) {
+            var len = arguments.length;
+            if(len === 0){
+                throw new Error('args can not length 0')
+            };
+            if(el.nodeType !== 1){
+                throw new Error('"Elements:" is not element')
+            };
+            // if(typeof str !== 'string'){
+            //     throw new Error('')
+            // }
+            
+
+            // 元素的初始值
+            var start = getStyle(el, str);
+            // 对于初始值 取整（单位
+            start = parseInt(start);
+            var s = end - start;//位移差
+            time = time * 1000;
+            var timer = setInterval(function () {
+                start += s / (time / 16.7);
+                // 处理没有单位的css属性
+                el.style[str] = start + 'px';
+                // 判断位移差 大于零的时候 或者小于零的时候
+                // 以及有单位的时候 和没单位的时候
+                // s 不同  出口条件不同
+                if (s > 0) {
+                    if (start >= end) {
+                        str == 'opacity' || str == 'zIndex'
+                            ? (el.style[str] = end)
+                            : (el.style[str] = end + 'px')
+                        clearInterval(timer);
+                        if(typeof callback === 'function'){
+                           callback();
+                        }
+                    };
+                } else {
+                    if (start <= end) {
+                        str == 'opacity' || str == 'zIndex'
+                            ? (el.style[str] = end)
+                            : (el.style[str] = end + 'px')
+                        clearInterval(timer);
+                        if(typeof callback === 'function'){
+                           callback();
+                        }
+                    };
+                }
+            }, 16.7);
+
+        };
+    </script>
+</body>
+
+</html>
