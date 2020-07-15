@@ -5,28 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: darksalmon;
-            position: relative;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        body,html {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(190, 197, 193, 0.2);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .box {
+            width: 300px;
+            height: 200px;
+            background-color: #ccc;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+       .ipt {
+           width: 200px;
+           height: 30px;
+           outline: none;
+           border: 1px solid transparent;
+           border-radius: 10px;
+       }
+       button {
+           width: 150px;
+           height: 30px;
+           margin:0 auto;
+           background-color: turquoise;
+           outline: none;
+           border-radius: 10px;
+           border: 1px solid transparent;
+
+       }
+       .box > div {
+           margin: 0 auto;
+       }
     </style>
 </head>
 <body>
-    <div class="box"></div>
+    <div class="box">
+        <div>
+            <p>输入姓名</p>
+            <input type="text" name="" id="names" class="ipt">
+        </div>
+        <div>
+            <p>输入联系方式</p>
+            <input type="text" name="" id="phone" class="ipt">
+        </div>
+            <button>提交</button>
+        
+    </div>
     <script>
         var box = document.querySelector('.box');
         box.onmousedown = function(e){
             var x = event.offsetX;
             var y = event.offsetY;
             window.onmousemove = function(e){
-                box.style.left = e.clientX-x + 'px';
-                box.style.top = e.clientY-y + 'px';
+                // 求边界线最大值--->浏览器视图窗口  innerWidth
+                // 最小值---> 0
+                var moveX = e.clientX - x;
+                var moveY = e.clientY - y;
+                if(moveX<=0){
+                    moveX = 0;
+                };
+                if(moveX>=innerWidth-300){
+                    moveX = innerWidth-300;
+                };
+                if(moveY<=0){
+                    moveY = 0;
+                };
+                if(moveY>=innerHeight-200){
+                    moveY = innerHeight-200
+                };
+                // 显示条件限制  然后再赋值
+                box.style.left = moveX + 'px';
+                box.style.top = moveY + 'px';
+            };
+            if(
+            e.clientX > innerWidth || 
+            e.clientY > innerHeight || 
+            e.clientY < 0 || 
+            e.clientX < 0
+            ){
+                window.onmousemove = null;
             };
             window.onmouseup = function(e){
                window.onmousemove = null;
-            }
+               window.onmouseup = null;
+            };
         };
         
     </script>
