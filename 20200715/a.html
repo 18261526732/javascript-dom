@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>返回</button>
+    <script>
+        var btn = document.querySelector('button');
+        btn.onclick = function(){
+            // history.back()//返回上一页
+            history.go(-1);//-1返回上一页
+            // location 存放地址信息
+        }
+        // console.log(location)
+        console.log(location.search)//接下来对字符串的替换分割处理
+
+
+        // ？ 变''
+        var query = location.search;
+        query = query.replace('?','');
+        console.log(query);
+        // & 变 ,
+        query = query.replace(/[&]/g,',');
+        console.log(query)
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: 50px auto;
+        }
+        .pic > img {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            display: none;
+        }
+        .control {
+            width: 100px;
+            height: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translate(-50%,0);
+        }
+        .control-item {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(150, 148, 148,0.5);
+        }
+        .show {
+            display: block !important;
+        }
+        .active {
+            background-color: silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="pic">
+            <img src="./image/1.jpg" alt="" class="show">
+            <img src="./image/2.jpg" alt="">
+            <img src="./image/3.jpg" alt="">
+        </div>
+        <div class="control">
+            <div class="control-item active"></div>
+            <div class="control-item"></div>
+            <div class="control-item"></div>
+        </div>
+    </div>
+    <script>
+        var imgs = document.querySelectorAll('img');
+        var control = document.querySelectorAll('.control-item');
+        console.log(imgs,control);
+
+        var index = 0;
+        for(var i = 0; i < control.length; i++){
+            (function(i){
+                control[i].addEventListener('click',function(){
+                    index = i;
+                    for(var j = 0;j < control.length; j++){
+                        control[j].className = 'control-item';
+                        imgs[j].className = '';
+                    }
+                    control[i].className = 'control-item active';
+                    imgs[i].className = 'show';
+                });
+            })(i);
+        };
+    </script>
+</body>
+</html>

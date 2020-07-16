@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="pro" id="pro"></select>
+        <select name="city" id="city"></select>
+        <select name="area" id="area"></select>
+    </form>
+    <script src="../20200714案例分析/area.js"></script>
+    <script>
+        // console.log(area)
+        var data = area;
+        var pro = document.querySelector('#pro');
+        var city = document.querySelector('#city');
+        var area = document.querySelector('#area');
+
+        // 初始化省 遍历data 获取key 添加到pro中
+        (function () {
+            for (var x in data) {
+                var option = document.createElement('option');
+                option.innerHTML = x;
+                option.value = x;
+                pro.appendChild(option);
+            };
+        })();
+
+
+        // 初始化 市  立即执行函数解决变量污染的问题 也同时解决了命名的问题 以及私有变量
+        var cityData = data[pro[0].value][0];
+        (function () {
+            console.log(cityData);
+            for (var y in cityData) {
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            };
+        })();
+
+
+        // 初始化 区
+        (function () {
+            var aeraData = cityData[city[0].value];
+            console.log(aeraData);
+            for (var i = 0; i < aeraData.length; i++) {
+                aeraData[i];
+                // console.log(aeraData[i])
+                for (var z in aeraData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    area.appendChild(option);
+                };
+            };
+        })();
+
+        // 联动问题
+        pro.onchange = function (e) {
+            console.dir(pro.selectedIndex);
+            var cityIndex = pro[pro.selectedIndex].value;
+            // console.log(cityIndex)
+            cityData = data[cityIndex][0];
+            // console.log(cityData);
+            city.innerHTML = '';
+            for (var y in cityData) {
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            };
+            var aeraIndex = city[city.selectedIndex].value;
+            console.log(aeraIndex);
+            var aeraData = cityData[aeraIndex];
+            area.innerHTML = ''
+            for (var i = 0; i < aeraData.length; i++) {
+                for (var z in aeraData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    area.appendChild(option);
+                };
+            };
+        };
+        city.onchange = function () {
+            var aeraIndex = city[city.selectedIndex].value;
+            var aeraData = cityData[aeraIndex];
+            area.innerHTML = '';
+            for (var i = 0; i < aeraData.length; i++) {
+                for (var z in aeraData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = z;
+                    option.value = z;
+                    area.appendChild(option);
+                };
+            };
+        };
+
+        // function creatOption(el,data){
+        //     for (var i = 0; i < data.length; i++) {
+        //         for (var z in data[i]) {
+        //             var option = document.createElement('option');
+        //             option.innerHTML = z;
+        //             option.value = z;
+        //             el.appendChild(option);
+        //         };
+        //     };
+        // };
+    </script>
+</body>
+
+</html>

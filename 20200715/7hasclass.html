@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box a   b"></div>
+    <script>
+        // hacClass()//判断某一个元素中 是否含有某个类名
+        // option : 参数为 dom元素 |要查询的字符
+        var box= document.querySelector('.box');
+        hasClass(box,'wrap');
+        function hasClass (el,str){
+            var classes = el.className;
+            // console.log(classes);
+            classes = classes.split(/\s+/);//正则 匹配多个空格 \s 表示空格字符 +表示无限次匹配
+            return classes.indexOf(str) !== -1 ?
+            true : false
+        };
+        console.log(hasClass(box,'wrap'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .view {
+            width: 500px;
+            height: 300px;
+            margin: 20 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wrap {
+            width: 2500px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .wrap>img {
+            width: 500px;
+            height: 300px;
+            float: left;
+        }
+
+        .control {
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            color: black;
+            cursor: pointer;
+        }
+
+        #right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+        <div class="wrap" style="left: -500px;">
+            <img src="./image/3.jpg" alt="">
+            <img src="./image/1.jpg" alt="">
+            <img src="./image/2.jpg" alt="">
+            <img src="./image/3.jpg" alt="">
+            <img src="./image/1.jpg" alt="">
+            <img src="./image/3.jpg" alt="">
+
+        </div>
+        <div id="left" class="control"><</div>
+                <div id="right" class="control">></div>
+        </div>
+        <script>
+            // var view = document.querySelector('.view');
+            var wrap = document.querySelector('.wrap');
+            var left = document.querySelector('#left');
+            var right = document.querySelector('#right')
+            left.onclick = function () {
+                var newLeft = parseInt(wrap.style.left)
+                wrap.style.left = parseInt(wrap.style.left) - 500 + 'px';
+                wrap.style.transition = '1s';
+                if(newLeft >= -2000){
+                    wrap.style.left = '-500px';
+                }
+            }
+            right.onclick = function () {
+                wrap.style.left = parseInt(wrap.style.left) + 500 + 'px';
+                wrap.style.transition = '1s';
+                // if(newLeft <= 2000){
+                //     wrap.style.left = '-500px';
+                // }
+            }
+
+
+
+        // function animat(offset){
+        //     var newLeft = parseInt(wrap.style.left) + offset;
+        //     wrap.style.left = newLeft + offset + 'px';
+        // }
+        // left.onclick = function(){
+        //     animat(-500);
+        // }
+        // right.onclick = function(){
+        //     animat(+500);
+        // }
+        // var newLeft = -500;
+        // function auto(){
+        //     setInterval(function(){
+        //         newLeft -= 500;
+        //         if(newLeft == -2500){
+        //             newLeft = 0;
+        //         }else{
+        //             newLeft = parseInt(wrap.style.left) -500;
+        //         }
+        //         wrap.style.left = newLeft + 'px';
+        //     },1500)
+        // }
+
+
+        </script>
+</body>
+
+</html>

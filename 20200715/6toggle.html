@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button>toggle</button>
+    <div class="box"></div>
+    <script>
+        // 1、box的显示隐藏不确定
+        // 2、隐藏显示 一定是display控制的
+
+        // toggle(box)//如果box显示 那么久隐藏 
+        var btn = document.querySelector('button');
+        var box = document.querySelector('.box');
+    //     var flag = true;
+    //    btn.onclick = function(){
+    //        flag = !flag;
+    //        if(flag){
+    //            box.style.display = 'block';
+    //        }else {
+    //            box.style.display = 'none';
+    //        }
+    //        console.log(getComputedStyle(box,null)['display'])
+    //    };
+    btn.onclick = function(){
+        toggle(box);
+    }
+       function toggle(el){
+         var none = getComputedStyle(el,null)['display'];
+         if(none === 'none'){
+             el.style.display = 'block';
+         }else{
+             el.style.display = 'none';
+         }
+         return el
+       }
+    </script>
+</body>
+</html>
+
+<!-- btn.onclick = function () {
+    toggle(box);
+}
+function toggle(el) {
+    var none = getComputedStyle(el, null)['display'];
+    if (none === 'none') {
+        var val = 0
+        el.style.opacity = val;
+        var timer = setInterval(function () {
+            val += 0.1;
+            if (val >= 1) {
+                el.style.opacity = 1;
+                el.style.display = 'block';
+                clearInterval(timer);
+            }
+            el.style.opacity = val;
+        }, 50)
+    
+    } else {
+        var val = 1
+        el.style.opacity = val;
+        var timer = setInterval(function () {
+            val -= 0.1;
+            if (val >= 1) {
+                el.style.opacity = 1;
+                el.style.display = 'none';
+                clearInterval(timer);
+            }
+            el.style.opacity = val;
+        }, 50)
+    }
+    return el
+} -->

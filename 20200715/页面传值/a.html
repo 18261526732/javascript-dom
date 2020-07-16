@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转到B</button>
+    <script>
+        var str = 'a数据';
+        // 从a跳转到b 需要将a数据传入到b页面中 --->页面传值
+        // 1、url传值  弊端：只能传少量的数据 字符串类型的数据
+        // 2、sessionStorage  浏览器关闭的时候会自动清空
+        // 3、localStoage
+
+        var btn = document.querySelector('button');
+        btn.onclick = function(){
+            location.href = './b.html?str=' + str;
+        }
+
+        var obj = {
+            username:'姑姑',
+            password:'iufhiafuhiaoif',
+            token:'udbauifbaiubfuisbkuai',
+            list:['dafaf',111,1,111,]
+        }
+
+        console.log(sessionStorage);
+        // 1：a中往sessionStorage 中存数据
+        // 2：其他页面中sessionStorage获取
+        btn.onclick = function(){
+            // setItem 设置sessionStorage数据
+            sessionStorage.setItem('obj',obj);
+            for(var x in obj){
+                sessionStorage.setItem(x,obj[x]);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        addClass(box,'wrap');//给元素添加类名
+        // 参数 （元素，字符串类名）
+        function addClass(el,str){
+            var list = el.classList;
+            list.add(str);//向数组中添加数据
+            return el
+        }
+        addClass(box,'hhhh')
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>清空</button>
+    <script>
+        var query = location.search;
+        query = query.replace('?','');//替换
+        query = query.replace('=',':');//替换
+        // query = `{${query}}`;//模板字符
+        // query = JSON.stringify(query);
+        // query = JSON.parse(query);
+        console.log(query);
+
+        // seesionStorage.getItem(str) 从 sessionStorage 中获取
+        var username = sessionStorage.getItem('username');
+        console.log(username);
+        document.querySelector('button').onclick = function(){
+            sessionStorage.clear();
+        }
+        document.querySelector('.btn').onclick = function(){
+            sessionStorage.m
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box a b c"></div>
+    <script>
+        var div = document.querySelector('div');
+        removeClass(div, 'c');
+        function removeClass(el, str) {
+            var classes = el.className;
+            classes = classes.split(/\s+/);//正则 匹配多个空格 \s 表示空格字符 +表示无限次匹配
+            var res = classes.indexOf(str) !== -1 ?
+                true : false
+            if (res) {
+                var newArr = classes.filter(function(item){
+                    return item !== str;
+                });
+                console.log(newArr)//数组
+                var newStr = newArr.join(' ');//数组中的逗号用空格替换
+                console.log(newStr)//字符串
+                el.className = newStr;
+            }
+            return el
+        }
+    </script>
+</body>
+
+</html>

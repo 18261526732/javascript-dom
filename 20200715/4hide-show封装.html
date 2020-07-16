@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        
+    </style>
+</head>
+<body>
+    <button>隐藏</button>
+    <button>显示</button>
+    <div class="box"></div>
+    <script src="./5todos.js"></script>
+    <script>
+        var box = document.querySelector('.box');
+        var btn = document.querySelector('button');
+        var btn2 = document.querySelectorAll('button')[1];
+        btn.onclick = function(){
+            hide(box);
+        }
+        btn2.onclick = function(){
+            show(box)
+        }
+        // hide(box)  //渐入式隐藏某一个元素
+        // function hide(el){
+        //     var val = 1;
+        //     el.style.opacity = val;
+        //     var timer = setInterval(function(){
+        //         val -= 0.1;
+        //         if(val <= 0){
+        //             el.style.opacity = 0;
+        //             el.style.diaplay = 'none';
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         el.style.opacity = val;
+        //     },100)
+        //     return el
+        // }
+        // hide(box);
+
+        // // show 显示 hide的相反方法
+
+        // show(box);
+        // function show(el){
+        //     var val = 0
+        //     el.style.display = 'block';
+        //     el.style.opacity = val;
+        //     var timer = setInterval(function(){
+        //         val += 0.1;
+        //         if(val >= 1){
+        //             el.style.opacity = 1;
+        //             clearInterval(timer);
+        //             return
+        //         }
+        //         el.style.opacity = val;
+        //     },100)
+        //     return el
+        // }
+    </script>
+</body>
+</html>

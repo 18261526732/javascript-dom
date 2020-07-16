@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        } */
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 保存不同平台的全局对象 浏览器平台 node平台
+        var global = typeof window !== 'indefined'?  window : this;
+        console.log(global);
+        (function(window){
+            var cQuery = function(){
+               return new cQuery()
+            }
+            console.log(cQuery)
+        })(global);
+    </script>
+</body>
+</html>
