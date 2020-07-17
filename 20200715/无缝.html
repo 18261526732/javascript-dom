@@ -21,7 +21,7 @@
         }
 
         .wrap {
-            width: 2500px;
+            width: 2000px;
             height: 300px;
             position: absolute;
             left: 0;
@@ -58,8 +58,6 @@
             <img src="./image/1.jpg" alt="">
             <img src="./image/2.jpg" alt="">
             <img src="./image/3.jpg" alt="">
-            <img src="./image/1.jpg" alt="">
-            <img src="./image/3.jpg" alt="">
 
         </div>
         <div id="left" class="control"><</div>
@@ -70,49 +68,36 @@
             var wrap = document.querySelector('.wrap');
             var left = document.querySelector('#left');
             var right = document.querySelector('#right')
+            var imgs = document.querySelectorAll('img');
+            var newLeft = parseInt(wrap.style.left)
             left.onclick = function () {
+                var newLeft = parseInt(wrap.style.left)
+                wrap.style.left = parseInt(wrap.style.left) + 500 + 'px';
+                wrap.style.transition = '1s';
+                if(newLeft == -500){
+                    wrap.style.left = '0px';
+                    var timer = setTimeout(function(){
+                        wrap.style.transition = '';
+                        wrap.style.left = '-1500px';
+                    },1000);
+                }
+                
+            }
+            right.onclick = function () {
                 var newLeft = parseInt(wrap.style.left)
                 wrap.style.left = parseInt(wrap.style.left) - 500 + 'px';
                 wrap.style.transition = '1s';
-                if(newLeft >= -2000){
-                    wrap.style.left = '-500px';
-                }
-            }
-            right.onclick = function () {
-                wrap.style.left = parseInt(wrap.style.left) + 500 + 'px';
-                wrap.style.transition = '1s';
-                // if(newLeft <= 2000){
-                //     wrap.style.left = '-500px';
-                // }
-            }
-
-
-
-        // function animat(offset){
-        //     var newLeft = parseInt(wrap.style.left) + offset;
-        //     wrap.style.left = newLeft + offset + 'px';
-        // }
-        // left.onclick = function(){
-        //     animat(-500);
-        // }
-        // right.onclick = function(){
-        //     animat(+500);
-        // }
-        // var newLeft = -500;
-        // function auto(){
-        //     setInterval(function(){
-        //         newLeft -= 500;
-        //         if(newLeft == -2500){
-        //             newLeft = 0;
-        //         }else{
-        //             newLeft = parseInt(wrap.style.left) -500;
-        //         }
-        //         wrap.style.left = newLeft + 'px';
-        //     },1500)
-        // }
-
+                console.log(newLeft)
+                if(newLeft == -1500){
+                    wrap.style.transition = '';
+                    wrap.style.left = '0px';
+                    var timer = setTimeout(function(){
+                        wrap.style.transition = '1s';
+                        wrap.style.left = '-500px';
+                    },0);
+                };
+            };
 
         </script>
 </body>
-
 </html>
