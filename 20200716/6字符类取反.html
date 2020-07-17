@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ^ 表示创建反向类 必须在[^]中使用
+        var reg = /[^0-9]/g;//表示 除了0-9 其他都匹配
+        var str = 'qurwhiugqr321gg42y443u+-=qh25ug';
+        console.log(str.match(reg))//不输出0-9
+        var reg1 = /[^0-9a-zA-Z_]/g;
+        console.log('你好世界，按个一分耕耘阿股份64124rugfag---——___'.match(reg1));
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'afhaiwquhfi14225142414214aufiqwibfiuqwub212414iu21biu142b1iu';
+        var reg = /\d{3,5}?/g;//非贪婪模式
+        var reg1 = /\d{3,5}/g;//贪婪模式
+        console.log(str.match(reg));//["142", "251", "424", "142", "212", "414", "142"]
+        console.log(str.match(reg1));//["14225", "14241", "4214", "21241", "142"]
+
+        var  reg2 = /\d+/g;//贪婪模式
+        var  reg3 = /\d+?/g;//非贪婪模式
+        console.log(str.match(reg2));//["14225142414214", "212414", "21", "142", "1"]
+        console.log(str.match(reg3));//["1", "4", "2", "2", "5", "1", "4", "2", "4", "1", "4", "2", "1", "4", "2", "1", "2", "4", "1", "4", "2", "1", "1", "4", "2", "1"]
+
+        // + === {1,}
+        // * === {0,}
+        //? 非贪婪模式
+        var reg4 = /\d{0,}/g;
+        var reg5 = /\d*/g;
+        console.log(str.match(reg4));//["", "", "", "", "", "", "", "", "", "", "", "14225142414214", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "212414", "", "", "21", "", "", "", "142", "", "1", "", "", ""]
+        console.log(str.match(reg4));//结果同上
+    </script>
+</body>
+</html>

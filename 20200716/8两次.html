@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 量词 设置匹配字符的长度
+        //{m,n} 匹配的字符长度 最小为m 最大为n
+        // {n,} 匹配长度字符 最小为n 长度不限
+        // {n} 匹配字符长度为n
+
+        // . 匹配的是任意字符   \. 匹配点  不同的 
+        var reg = /.{3}/ //验证长度为三的
+        var reg2 = /^.{3}$/ //验证长度为三的
+        var str = 'qquhfqiubuuf';
+        console.log(str.match(reg));//qqu
+        console.log(str.match(reg2));//null
+
+        var reg3 = /^[0-9]{1,}$/;//验证数字
+        var str3 = '21427268719486192';
+        console.log(str3.match(reg3));
+        // 验证字符串是否符合正则表达式
+        // RegExp.test(str)  验证一个字符串是否符合正则表达式 返回值为布尔值
+        console.log(reg3.test(str3));//true 
+
+        // 匹配首部或者尾部为空格的
+        var str4 = ' jjni 23525';
+        var reg4 = /^\s{1,}| \s$ /g;
+        console.log(str4.replace(reg4,''));//jjni 23525
+
+        // 需求：去除一个字符串中的空格
+        var reg5 = /\s{1,}/g;
+        var str5 = '13ij   214 254   1424gg2 4214 ';
+        console.log(str5.replace(reg5,''))//13ij2142541424gg24214
+    </script>
+</body>
+</html>

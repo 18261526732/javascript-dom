@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // - 表示区间
+        // 匹配两个字符 每个字符长度为1  第一个字符为数字0-9 第二个字符是字母a-z
+        // 匹配结果：数字字母 长度为2
+        var reg = /[0-9][a-z]/g;
+        console.log('af24j24h3412i3er34r5h6r5e'.match(reg));//["4j", "4h", "2i", "3e", "4r", "5h", "6r", "5e"]
+        
+    </script>
+</body>
+</html>

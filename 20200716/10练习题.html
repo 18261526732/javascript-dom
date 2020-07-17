@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1: 以数字字母开头 匹配结果字符长度为8为
+    var str1 = '213wew1we231324244twe';
+    var reg1 = /^[0-9A-z]{7}/g
+    var reg1 = /^\d\w{7}/g;
+    console.log(str1.match(reg1));
+    // 2：匹配一个数字字符字符长度为18为
+    var reg2 = /^\d{18}/g;
+    var str2 = '318741784237528591805235';
+    console.log(str2.match(reg2));
+    // 3: 手机号码正则
+    var reg3 = /^[1][3][4][5][7][8][9][0-9]{9}$/g; //验证手机号码 严谨
+    var str3 = '1318741784237528591805235';
+    console.log(str3.match(reg3));
+    // 4: 邮箱的验证码
+    var reg4 = /^/
+    // 5：写一个 8-12 的密码验证。
+    var reg5 = /\w{8,12}/g;
+    var str5 = 'fahfiuqfqii114uhfu';
+    console.log(str5.match(reg5));
+    // 6：http开头 中间为任意字符，长度不限，结尾必须是.com.cn
+    var reg6 = /^['http']\w{1,}['.com.cn']$/;
+    var str6 = 'http:www.badu.com.cn';
+    console.log(str6.match(reg6));
+
+    var reg1 = /^\d\w{7}/g;
+    var reg2 = /^\d{18}/g;
+    var reg3 = /^[1][3][4][5][7][8][9][0-9]{9}$/g; //验证手机号码 严谨
+
+    var reg5 = /\w{8,12}/g;
+    var reg6 = /^[http].+\.[.com.cn]$/;
+
+    // 匹配网址
+    var reg = /^((http)|(https)):\/\/[a-zA-Z]{0,3}\.[0-9a-z]+\.(com | cn)$/
+    
+    </script>
+</body>
+</html>

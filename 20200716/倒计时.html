@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 500px;
+            height: 50px;
+            margin: 20px auto;
+            background-color: bisque;
+            text-align: center;
+            line-height: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        倒计时：<span class="hours">23</span>时<span class="mint">59</span>分<span class="seconds">59</span>秒
+    </div>
+    <script>
+        var seconds = document.querySelector('.seconds');
+        var mint = document.querySelector('.mint');
+        var hours = document.querySelector('.hours')
+        var h = 23;
+        var mints = 59;
+        var scon = 59;
+        (function () {
+            var timer = setInterval(function () {
+                scon--;
+                seconds.innerHTML = scon;
+                if (scon == 0) {
+                    if(scon == 0 && mints == 0 && h == 0){
+                        clearInterval(timer);
+                        return;
+                    }
+                    scon = 59;
+                    mints--;
+                    mint.innerHTML = mints;
+                    if (mints < 0) {
+                        mints = 59;
+                        mint.innerHTML = mints;
+                    };
+                    if (mints == 0 && h == 0) {
+
+                    } else if (mints == 0) {
+                        h--;
+                        hours.innerHTML = h;    
+                    }
+                };
+
+            }, 1);
+        })();
+    </script>
+</body>
+
+</html>

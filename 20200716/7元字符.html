@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var reg = /[0-9]/g; ======= var reg = /\d/g;
+       
+        // var reg = /[0-9a-zA-Z_]/g; ===== var 3dreg = /[\w]/g
+        
+        // 严格要求 仅能匹配字符长度为二 开头为数字 结尾是字母
+        var reg = /^\d[a-zA-Z]$/;//以数字开头字母结尾
+        var reg2 = /^\d\w[a-zA-Z]$/;//以数字开头字母结尾  
+        var str = '3d';
+        var str2 = '282481749fsfyg7fiufgw231y2y';
+        console.log(str.match(reg));//3d
+        console.log(str2.match(reg2));//null
+
+        var reg3 = /^[1][^\s]{1,}/g;
+        var str3 = '1fsfhafhuqw234';
+        var str4 = 'fs2131fsu';
+        console.log(str3.match(reg3));//["1fsfhafhuqw234"]
+        console.log(str4.match(reg3));//null
+
+        // 仅匹配开头为1的 结尾长度为10 的字符 所以匹配结果是11位的数字
+        var reg5 = /^1\d{10}/g;//规定了开头数字为1  结尾是数字 两个带匹配字符 第一个字符长度以 第二个字符长度10 仅匹配
+        var str5 = '18261526732222qwe222';
+        console.log(str5.match(reg5))//["18261526732"]
+
+        var str6 = 'this is hahhah';
+        var reg6 = /\bis/g; 
+        console.log(str6.match(reg6))//["is"]
+    </script>
+</body>
+</html>

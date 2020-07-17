@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date = new Date();
+        console.log(date);//Thu Jul 16 2020 16:54:53 GMT+0800
+        // 需求 2020-07-16 16:30:09
+        function formatDate(date) {
+            // 确定数据结构
+            var str = 'yyyy-MM-dd hh:ff:ss';
+            // 获取具体的年月日 然后替换字符串结构
+            console.dir(date)
+            var time = {
+                'y+': date.getFullYear(),
+                'M+': date.getMonth() + 1,
+                'd+': date.getDate(),
+                'h+': date.getHours(),
+                'f+': date.getMinutes(),
+                's+': date.getSeconds()
+            };
+            for (var x in time) {
+                var reg = new RegExp(`(${x})`);
+                if (reg.test(str)) {
+                    var newVal = time[x] >= 10 ? time[x] : '0' + time[x]
+                    str = str.replace(RegExp.$1, newVal);
+                };
+            };
+            // console.log(time)
+            console.log(str);
+            return str
+        }
+        formatDate(date);
+    </script>
+</body>
+</html>
+<script>
+
+</script>

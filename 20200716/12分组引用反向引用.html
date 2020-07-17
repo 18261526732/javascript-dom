@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str1 = 'yyyy-mm-dd';
+        var str2 = '2020-07-16';
+        var year = 2020;
+        var mout = 07;
+        var data = 16;
+
+        // var res = '2020-07-16'
+        var reg1 = /(yyyy)[-](mm)[-](dd)/;
+        console.log(str1.match(reg));
+        console.log(RegExp.$1);
+        console.log(RegExp.$2);
+        console.log(RegExp.$3);
+
+        var reg2 = /(\d{4})-(\d{2})-(\d{2})/;
+        console.log(str2.match(reg2));
+
+        // 通过反向引用：获取 分组中的内ring
+        // 外部$1$2$3
+        // $1 指第一个分组匹配结果
+        // $2 指第二个分组匹配结果
+        // $3 第三个分组为匹配内容
+
+        // 正则表达式的内部的反向引用
+        var reg = /(.)(小红花)\1{4}\2/g;
+        var str = 'w小红花wwww小红花小红花小红花小红花小红花小红花';
+        console.log(str.match(reg));//["w小红花wwww小红花"]
+    </script>
+</body>
+</html>
