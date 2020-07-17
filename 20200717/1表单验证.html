@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         form {
+             width: 300px;
+             position: absolute;
+             left: 50%;
+             top: 20%;
+             transform: translate(-50%,-50%);
+             padding: 20px 15px;
+             border: 1px solid #ccc;
+             box-shadow: 5px 3px 15px #cccccc;
+         }
+         .form-control {
+             width: 100%;
+             margin: 0 auto;
+             padding: 10px 5px;
+         }
+         .form-control lable {
+             font-size: 14px;
+             color: darkslategray;
+         }
+         .form-control input {
+             height: 25px;
+             outline: none;
+             border: 1px solid #ccc;
+         }
+         .form-control p {
+             font-size: 12px;
+             text-align: left;
+             color: red;
+             margin-top: 5px;
+             padding-left: 20%;
+             opacity: 0;
+         }
+         button {
+             width: 85%;
+             height: 30px;
+             text-align: center;
+             line-height: 30px;
+             color: #f9f9f9;
+             background-color: tomato;
+             outline: none;
+             appearance: none;
+             border-radius: 50px;
+             border: none;
+             margin-top: 10px;
+             margin-left: 7.5%;
+         }
+    </style>
+</head>
+<body>
+    <form action="">
+        <divform class="form-control">
+            <label for="username">用户名:</label>
+            <input type="text" name="username" id="username">
+            <p class="userWarn">请输入6-16位的数字或者字母</p>
+        </div>
+        <div class="form-control">
+            <label for="password">密&#x3000;码:</label>
+            <input type="password" name="password" id="password">
+            <p class="passWarn">请输入8-12位的开头大写的数字字符下划线</p>
+        </div>
+        <button>登录</button>
+    </form>
+    <script>
+        var btn = document.querySelector('button');
+        var username = document.querySelector('#username');
+        var password = document.querySelector('#password');
+        var userWarn = document.querySelector('.userWarn');
+        var passWarn = document.querySelector('.passWarn');
+        btn.onclick = function(e){
+            e.preventDefault();
+            var user = username.value;
+            var pass = password.value;
+            console.log(user,pass);
+            // 贪婪匹配  
+            var reg = /^[0-9a-zA-Z]{6,16}$/;
+            var reg1 = /^[A-Z]\w{7,11}$/;
+            // console.log(reg.test(user))
+            if(reg.test(user)){
+                userWarn.style.opacity = '1';
+            }else{
+                userWarn.style.opacity = '0';
+            }
+            if(!reg1.test(pass)){
+                passWarn.style.opacity = '1';
+            }else{
+                passWarn.style.opacity = '0';
+            }
+            if(reg.test(user) && reg1.test(pass)){
+                userWarn.style.opacity = '0';
+                passWarn.style.opacity = '0';
+                alert('登录成功');
+            }
+            
+        }
+    </script>
+</body>
+</html>

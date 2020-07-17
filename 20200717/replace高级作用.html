@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '美国人日本人韩国人';
+        var count = 0;
+        var res = str.replace(/['人']/g,function(a,b,c){
+            console.log(a);// 参一 为正则匹配出的结果
+            console.log(b);// 参二 为匹配的结果的索引值
+            console.log(c);// 参三 为待匹配的字符串
+            return '花'+(++count)//return 返回值是替换
+        });
+        console.log(res)
+    </script>
+</body>
+</html>

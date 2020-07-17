@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        运行js 两个平台
+        浏览器 window
+        node global
+        平台不同 数组对象的api不同 内置的api相同
+     -->
+    <script>
+        var str = 'a e regular exprution';
+        // 需求：匹配regular的e
+        // 断言是匹配字符的条件判断
+        var reg = /e(?=gular)/g;//匹配字母e 条件是 e 右边的字符是否为gular
+        console.log(str.match(reg));
+        console.log(str.replace(reg,'哈'));
+
+        var str2 = 'regex represents regular expression';
+        var reg2 = /(?<=\w)re/;
+        console.log(str2.replace(reg2,'换'));
+        
+        // 正则表达式【匹配方式 从左往右
+        // 前瞻 ：匹配字符的时候 ：还需要往右边看看是否满足某个条件 同时也叫正向匹配
+        // 匹配的时候往左看 成为负向匹配
+
+        // 字符串往右判断 称为前（也就是字符串尾部）
+    </script>
+</body>
+</html>
