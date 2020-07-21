@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ajax(
+            {
+            method:'post',
+            data:{
+                page:1,
+                a:'dizhi'
+            },
+            url:'www.baidu.com',
+            success:function(data){
+                console.log(data)//服务器响应的数据
+            },
+            error:function(err){
+                console.log(err)//
+            },
+            async:true,//是否异步  默认异步处理
+            }
+        );
+        /*
+            ajax(option 作用发送http请求)
+            option 是一个对象 对象中是参数
+            method  | string   get post 表示请求方式
+            url     | string 表示请求地址
+            data    | Object 表示请求采纳数
+            succes  | function 表示请求成功后：如何处理响应函数
+            error   | function 表示请求失败后：如何处理失败情况
+            async   | boolearn 表示请求的程序是同步还是异步
+        */
+        function ajax(option){
+            // 1：获取需要的数据：方法 地址 参数 callback
+            var {method,data,url,success,error,async} = option;
+            // 2：发送请求步骤 分四步
+            // 2.1 实例化对象
+            var xhr = new XMLHttpRequest();
+            console.log(method,data.url,success,error,);
+            // 2.2 发送get请求
+            // 处理请求地址和请求参数
+            if(method === 'get' || method==='GET'){
+                url = url + '?';
+                for(var x in data){
+                    url += `${x}=${data[x]}&`;
+                };
+                url = url.slice(0,url.length-1);
+                // 需求的url地址 www.aa.com?aa=1&paga=1--->url+data 加工处理
+            };
+            xhr.open(method,url,async);
+            xhr.send();
+            // 2.3 处理响应函数
+            xhr.onreadystatechange = function(){
+                if(xhr.status == 200 || xhr.readyState == 4){
+                    // 表示请求成功
+                    // 获取响应数据
+                    var res = xhr.response;//响应数据
+                    // 请求成功后 执行成功处理函数
+                    success(res)
+                    console.log(res)
+                }else{
+                    // 请求失败 执行失败处理函数
+                    // 失败情况多 返回xhr
+                    error(xhr)
+                }
+            }
+            if(method === 'post' || method === 'POST'){
+                // post 需要请求头
+                var params = '';
+                for(var y in data){
+                    params += `${y}=${data[y]}&`;
+                }
+                params = params.slice(0,params.length-1);
+            };
+            xhr.open(method,url,async);
+                xhr.setRequestHeader(
+                "content-type",
+                "application/x-www-form-urlencoded"
+                );
+            xhr.send(params);
+            xhr.onreadystatechange = function(){
+                if(xhr.status == 200 || xhr.readyState == 4){
+                    var res = xhr.response;//响应数据
+                    success(res)
+                    console.log(res)
+                }else{
+                    error(xhr)
+                }
+            }                        
+        }
+    </script>
+</body>
+</html>

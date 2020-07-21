@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- get 用户：需要向服务器【获取大量数据】的时候
+    请求是通过url方式传参
+    1：get请求有缓存的作用，
+    2：弊端，所有的请求采纳数都可以被用户看点不安全，请求参数：数据少了
+
+    post 通过请求体发送传送请求参数
+    1：【提交数据】：表单9提交都是用的post请求
+    2：没有缓存，不可以利用缓存减少请求次数
+    3：相对get更加安全
+
+    pull 用于【数据更新】
+
+    delete 用于【删除服务器数据】 -->
+
+
+    <script>
+        window.onload = function(){
+            var xhr = new XMLHttpRequest();
+            var url = 'http://baseurl.vebcoder.cn:9527/api/search'
+            xhr.open('POST',url,true);
+            // setRequestHeader 设置请求头 请求体
+            // content-type 告诉服务器：请求体中：数据是什么格式的
+            xhr.setRequestHeader(
+                "content-type",
+                "application/x-www-form-urlencoded"
+            );
+            // 文图：请求头有多个--->直接写多个xhr.setRequestHeader()
+            // send() 发送请求
+            // 参数是：字符串-->post 的请求参数
+            // 格式 'p1=值&p2=值'
+            var parames = '咖啡';
+            xhr.send(`word=${parames}`);
+
+        };
+    </script>
+
+
+</body>
+
+</html>
