@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>你好</div>
+    <script>
+        function $(str) {
+            return new jQuery(str)
+        }
+        function jQuery(el) {
+            this.el = document.querySelector(el);
+        }
+        // Jquery 的原型对象下所有属性：都可以被jQery 构造函数实例化的对象执行直接访问
+        jQuery.prototype = {
+            html: function (str) {
+                // 在方法中找到jquery对象---->看this
+                console.log(this.el)
+                // 如何通过this 在jquery对象中 找到html标签
+                this.el.innerHTML = str;
+                return this //为了链式调用方法 返回jquery对象
+            },
+            // 更改元素属性值
+            css: function (option) {
+                for (var x in option) {
+                    this.el.style[x] = option[x];
+                }
+                return this
+            },
+        }
+        // 元素隐藏 然后再显示
+        jQuery.prototype.hide = function () {
+            var val = 1;
+            this.el.style.opacity = val;
+            var timer = setInterval(() => {
+                val -= 0.1;
+                if (val <= 0) {
+                    this.el.style.opacity = 0;
+                    this.el.style.diaplay = 'none';
+                    clearInterval(timer);
+                    this.show()
+                    return
+                }
+                this.el.style.opacity = val;
+            }, 100)
+            return this
+        }
+
+        // 元素显示
+        jQuery.prototype.show = function () {
+            var val = 0
+            this.el.style.display = 'block';
+            this.el.style.opacity = val;
+            var timer = setInterval(() => {
+                val += 0.1;
+                if (val >= 1) {
+                    this.el.style.opacity = 1;
+                    clearInterval(timer);
+                    return
+                }
+                this.el.style.opacity = val;
+            }, 100)
+            return this
+        }
+
+        // 给元素绑定事件
+        jQuery.prototype.on = function (str, callback, async) {
+            this.el.addEventListener(str, callback, async);
+            return (this)
+        }
+
+        $('div').html('还不错').css({
+            color: 'red',
+            fontSize: '30px'
+        })
+        $('div').on('click',function(){
+            
+            $('div').hide();
+        },true)
+        // console.log(res)
+        // 1链式调用：所有的api返回的都是同一个对象
+    </script>
+</body>
+
+</html>

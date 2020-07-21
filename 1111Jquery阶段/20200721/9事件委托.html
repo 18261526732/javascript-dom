@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2>001嘚嘚嘚嘚</h2>
+        <h2>002嘚嘚嘚嘚</h2>
+        <h2>003嘚嘚嘚嘚</h2>
+        <h2>004嘚嘚嘚嘚</h2>
+        <h2>005嘚嘚嘚嘚</h2>
+        <div>我是内容</div>
+    </div>
+    <script>
+        // var h2 = $('h2')
+        // 将h2 的点击事件委托给wrap 只有点击h2 事件才会执行
+        $('.wrap').on('click',"h2",function(e){
+            // e ---> jq对象
+            // console.log($(this));//指定绑定事件的元素
+
+            // console.log($(e.currentTarget));//指定绑定事件的元素
+            // $(this).css({
+            //     color:'red'
+            // });
+ 
+            // (e.currentTarget);//指定绑定事件的元素
+            // e.originalEvent.target 获取触发事件元素
+            console.log(e.originalEvent.target);
+
+            
+            // $(e.originalEvent.target).css({color:'red'});
+            
+            console.log(e.originalEvent.target.localName)
+            // e.originalEvent.target.localName == 'h2'
+            // ? $(e.originalEvent.target).css({color:'red'})
+            // : $(e.originalEvent.target).css({color:''})
+        });
+    </script>
+</body>
+
+</html>

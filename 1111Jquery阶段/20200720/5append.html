@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <div class="box"></div>
+    <script>
+        // html.append(str/dom) 作用 把str/dom插入到html中
+        $('.wrap').append('<p>我是添加的内容</p>');
+        
+
+        //新闻滚动效果 
+        $('.wrap').append($('.box'))//修改了原来的html结构
+        // 添加上一个元素
+        $('.wrap').prepend('<h1>从第一个滚动条添加的</h1>')
+        // html.append(str) 把html插入到str/dom 中
+        // $('.wrap').appendTo($('.box'));
+
+        // 动画
+        // animate()自定义动画
+        // 参一： 执行动画的css助兴
+        // 参二：动画执行时间
+        // 参三：回调函数；动画执行完毕后再执行
+        $('.box').animate({
+            opacity:0
+        },
+            2000,
+            // function(){
+            //     alert('动画执行')
+            // }
+        )
+
+
+        // 添加星弟元素
+        // 给wrap插入上一个兄弟元素
+        $('.wrap').before('<div class="one"></div>')
+        // 给wrap插入下一个兄弟元素
+        $('.wrap').after('<div class="two"></div>')
+    </script>
+</body>
+</html>

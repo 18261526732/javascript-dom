@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            /* margin: 100px auto; */
+            width: 300px;
+            height: 50px;
+            border: 1px solid #ccc;
+            text-align: left;
+            line-height: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            padding-left: 20px;
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            /* display: flex; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <script>
+        var news = [
+            '锄禾日当午',
+            '汗滴禾下土',
+            '谁知盘中餐',
+            '粒粒皆辛苦',
+            '凡是过往',
+            '皆为序章',
+            '你好世界',
+            '我是一个保安',
+            '爱吃小熊饼干',
+            '上班只为下班'
+        ];
+        news.forEach(function (item) {
+            console.log(item);
+            $('.wrap').append(`<p>${item}</p>`);
+        });
+        console.log($('p:first'));//获取第一个
+        setInterval(function () {
+            $('p:first').animate({
+                marginTop: '-50px'
+            }, 1000,
+                function () {
+                    //  清空margin 不清空 会有bug
+                    $('p').css({ marginTop: 0 });
+                    $('.wrap').append($('p:first'))
+                }
+            );
+        }, 1100);
+
+        // $('.wrap').animate({
+        //     top:'50px'
+        // },1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <label for="">
+            姓名：<input type="text" name="username">
+        </label>
+        <div>
+            <select name="city" id="city">
+                <option value="南京">南京</option>
+                <option value="哈尔滨">哈尔滨</option>
+                <option value="牡丹江">牡丹江</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" value="浏览" name="aa">浏览
+            <input type="checkbox" value="去过" name="aa">去过
+            <input type="checkbox" value="aaa" name="aa">aaa
+        </div>
+        <div>
+            <input type="radio" id="sex" name="sex" value="女">女
+            <input type="radio" id="sex" name="sex" value="男">男
+        </div>
+        <div>
+            <button>提交</button>
+        </div>
+    </form>
+    <script>
+        $('form').on('submit',function(e){
+            e.preventDefault();
+            //获取表单中所有天机内容
+            var res = $('form').serializeArray();
+            console.log(res);
+            //checkbox 
+            // 多选需要根据请求参数进一步处理 对res进一步处理
+        })
+    </script>
+</body>
+</html>

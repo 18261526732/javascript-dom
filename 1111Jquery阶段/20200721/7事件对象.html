@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <h2>我是内容001</h2>
+    <h2>我是内容002</h2>
+    <h2>我是内容003</h2>
+    <script>
+        $('h2').on('click',function(){
+            // 如何合区当前触发事件的元素
+            // $(this);
+            // console.log(event)
+            // event.currentTarget 是dom元素
+            console.log(event.currentTarget)//返回当前触发的元素
+            // event.currentTarget.style.color = 'red';
+            //$(event.currentTarget) 是jquery对象
+            $(event.currentTarget).css({color:'red'})
+        });
+        // 原生js 是所有代码中最快的 轻量型语言
+        // jquery  具备性能优化：1、减少频繁操作dom树的次数
+        // 用jq api 修改的都是【虚拟dom】 当【虚拟dom】修改完毕后jq底层会修改dom
+        // jq底层操作dom 程序是异步
+        // 原生js 就是频繁操作dom树
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .wrap {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            position: absolute;
+            top: 300px;
+            left: 200px;
+        }
+        .box {
+            width: 20px;
+            height: 20px;
+            background-color: cadetblue;
+            /* margin-left: 30px; */
+            position: absolute;
+            left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <script>
+        $(window).ready(function () {
+            for (var i = 0; i < 100; i++) {
+                $('body').append('<p>我是内容</p>')
+            };
+            // 获取滚动条滚动高度
+            $(document).on('scroll', function () {
+                // console.log('-------');
+                var top = $(document).scrollTop();
+                console.log(top)
+
+            });
+        });
+
+        // 获取元素位置的偏移量
+        var obj = $('.wrap').offset();
+        console.log(obj)
+        // position() 元素相对父元素的偏移量
+        var postion = $('.box').position();
+        console.log(postion)
+        // offset() 元素相对窗口的偏移量 其实就是 position left的值
+        var po = $('.box').offset();
+        console.log(po)
+
+        //跟位置相关的js交互效果 拖拽 放大镜。。。
+    </script>
+</body>
+
+</html>

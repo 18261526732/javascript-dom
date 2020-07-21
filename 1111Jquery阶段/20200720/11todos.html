@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+</head>
+
+<body>
+    <input type="text">
+    <div class="content">
+        <p>我是内容</p>
+    </div>
+    <script>
+        $("p").on('click', function () {
+            console.log($(this));
+            // 异步问题
+            // 等淡入隐藏动画执行完毕后再删除
+            $(this).fadeOut(500, function () {
+                $(this).remove();
+            })
+        });
+        $('input[type=text]').on('keydown', function (e) {
+            // 获取所有的p
+
+            // console.log(e)
+            if (e.keyCode == 13) {
+                // val() 获取和设置input的val值
+                var val = $('input[type=text]').val();
+                var p = `<p>${val}</p>`;
+                // 要构思出动画效果执行前的初始化效果
+                p = $(p).css({ display: 'none' });
+                var res = $('.content').append(p);
+                // console.log(res)//返回jq对象
+
+                // 插入p标签有淡出的动画效果
+                // 添加元素时候为隐藏状态,再动画淡出
+                $(p).fadeIn(500);
+                $('input[type = text]').val('');
+                // 获取所有的p
+                // bug
+                // $('p')---->选中【所有的p】 已经存在p 存在多次绑定同一个事件，导致了时间处理函数多次触发
+                // 解决方式：优化--->$(p)---> 只是给当前【插入p】绑定点击事件，可以保证多个p只绑定一个事件
+                // 就不会导致一个元素 执行多次事件
+                // 会导致 初始化的标签不会选中---> 初始化再选中 然后绑定点击事件
+                $(p).on('click', function () {
+                    // console.log($(this));
+                    $(this).fadeOut(500, function () {
+                        $(this).remove();
+                    });
+                });
+            };
+        });
+
+
+    </script>
+</body>
+
+</html>

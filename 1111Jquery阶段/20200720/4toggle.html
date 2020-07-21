@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <button>显示</button>
+    <div class="box"></div>
+    <script>
+        $(window).on('load',function(){
+            // 初始化设置box样式
+            $('.box').css({
+                width: '100px',
+                height: '100px',
+                background: 'red',
+            });
+            $('button').on('click',function(){
+                // toggle()设置元素的显示隐藏取反切换 返回jq对象
+                $('.box').toggle();
+            });
+        });
+        // jquery方法封装完毕 直接使用 知道怎么用： 了解返回值是什么
+    </script>
+</body>
+</html>

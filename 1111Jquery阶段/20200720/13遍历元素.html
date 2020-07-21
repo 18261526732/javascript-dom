@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+        <p>---------</p>
+        <ul>
+            <span>123</span>
+            <span>123</span>
+            <span>123</span>
+            <span>123</span>
+            <li> 内容001</li>
+            <li>内容002</li>
+            <li>内容003</li>
+        </ul>
+    </div>
+    <script>
+        // 如何通过当前的元素 查找相关的元素
+        // 父元素，子元素，第几个子元素，兄弟元素
+
+        var lis = $('ul').children();
+        console.log(lis);//返回ul下的所有子元素的集合
+
+        var parent = $('ul').parent();
+        console.log(parent);//返回父元素 jq对象
+
+        // 根据条件查找元素 
+        // a.find(b)--->查找a下的b元素
+        var span = $('ul').find('span');
+        console.log(span);//返回jq对象 元素集合
+
+        // 找到第二个span
+        // jq.eq(index) 选中第几个元素 index为索引值
+        var two = span.eq(1);
+        console.log(two);
+
+        // 选中ul下的第三个span
+        $('ul>span:eq(2)').css({
+            color:'red'
+        });
+
+        // 总结：查找指定元素 或者元素关系
+        // 基本筛选：筛选api
+        // 作用：指定选中某一个元素
+    </script>
+</body>
+</html>

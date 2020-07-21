@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <div id="content">
+        <p>圈圈</p>
+        <input type="text" name="username" id="username">
+        <button>子窗口中点击</button>
+    </div>
+    <script>
+        // 
+        
+        // 需求：将子窗口的username 传递到父窗口中
+        $('button').on('click',function(e){
+            e.preventDefault();
+            // 1、获取子窗口的数据
+            var username = $('#username').val();
+            console.log(username);
+            ///2、获取父窗口，并对父窗口中属性赋值
+            // window.parent 可以找到父窗口对象
+            var parentWindow = window.parent;
+            console.log(parentWindow);
+            // 相当于是在浏览器窗口下声明了一个全局变量 username
+            parentWindow.username = username;
+            parentWindow.a = username;
+        });
+    </script>
+</body>
+</html>
